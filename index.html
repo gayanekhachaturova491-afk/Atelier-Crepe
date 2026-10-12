@@ -106,13 +106,7 @@ header {
   letter-spacing: .2em;
 }
 
-/* MENU */
-
-.menu-section {
-  width: 100%;
-  padding: 75px 0 65px;
-  flex: 1;
-}
+/* GENERAL MENU HEADINGS */
 
 .menu-heading {
   text-align: center;
@@ -154,7 +148,13 @@ header {
   margin: 27px auto 0;
 }
 
-/* MENU GRID */
+/* CREPE MENU */
+
+.crepe-section {
+  width: 100%;
+  padding: 75px 0 75px;
+  border-bottom: 1px solid rgba(240,229,216,.18);
+}
 
 .menu-grid {
   display: grid;
@@ -274,6 +274,112 @@ header {
   letter-spacing: .04em;
 }
 
+/* COFFEE SECTION */
+
+.coffee-section {
+  padding: 85px 0 75px;
+  border-bottom: 1px solid rgba(240,229,216,.18);
+}
+
+.coffee-heading {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.coffee-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 95px);
+  align-items: center;
+}
+
+/* LEFT VIDEO */
+
+.coffee-video-wrap {
+  position: relative;
+  width: 100%;
+  height: 570px;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+
+.coffee-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.video-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  text-align: center;
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0,0,0,.6);
+  pointer-events: none;
+}
+
+/* RIGHT COFFEE LIST */
+
+.coffee-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.coffee-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.coffee-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.coffee-info {
+  min-width: 0;
+}
+
+.coffee-name {
+  font-family: "Italiana", Georgia, serif;
+  font-size: clamp(25px, 2.6vw, 37px);
+  font-weight: 400;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0 0 11px;
+}
+
+.coffee-description {
+  color: #ead9cf;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: .015em;
+  max-width: 430px;
+  margin: 0;
+}
+
+.coffee-price {
+  white-space: nowrap;
+  font-family: "Italiana", Georgia, serif;
+  font-size: 21px;
+  letter-spacing: .025em;
+  border: 1px solid var(--line);
+  padding: 10px 13px;
+}
+
 /* FOOTER */
 
 footer {
@@ -288,7 +394,6 @@ footer {
   letter-spacing: .25em;
   text-transform: uppercase;
   padding-top: 20px;
-  border-top: 1px solid rgba(240,229,216,.12);
 }
 
 .footer-line {
@@ -319,12 +424,26 @@ footer {
     min-height: auto;
   }
 
-  .item-description {
+  .item-description,
+  .ingredients {
     min-height: auto;
   }
 
-  .ingredients {
-    min-height: auto;
+  .coffee-layout {
+    gap: 35px;
+  }
+
+  .coffee-video-wrap {
+    height: 480px;
+  }
+
+  .coffee-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .coffee-price {
+    justify-self: start;
   }
 }
 
@@ -354,11 +473,12 @@ footer {
     display: none;
   }
 
-  .menu-section {
-    padding: 48px 0 45px;
+  .crepe-section {
+    padding: 48px 0 48px;
   }
 
-  .menu-heading {
+  .menu-heading,
+  .coffee-heading {
     margin-bottom: 40px;
   }
 
@@ -430,6 +550,42 @@ footer {
     font-size: 17px;
   }
 
+  /* COFFEE MOBILE */
+
+  .coffee-section {
+    padding: 55px 0 50px;
+  }
+
+  .coffee-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .coffee-video-wrap {
+    height: 390px;
+  }
+
+  .coffee-item {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 21px 0;
+  }
+
+  .coffee-name {
+    font-size: 27px;
+    margin-bottom: 8px;
+  }
+
+  .coffee-description {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .coffee-price {
+    font-size: 16px;
+    padding: 8px 9px;
+  }
+
   footer {
     display: flex;
     flex-direction: column;
@@ -461,12 +617,26 @@ footer {
   .price {
     font-size: 15px;
   }
+
+  .coffee-video-wrap {
+    height: 320px;
+  }
+
+  .coffee-name {
+    font-size: 23px;
+  }
+
+  .coffee-price {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
 
 <body>
 <div class="page">
+
+  <!-- HEADER -->
 
   <header>
     <a class="brand" href="#menu">
@@ -476,6 +646,7 @@ footer {
 
     <nav class="nav">
       <a href="#menu">Menu</a>
+      <a href="#coffee">Coffee</a>
       <a href="#about">About</a>
       <a href="#location">Location</a>
     </nav>
@@ -483,7 +654,10 @@ footer {
     <div class="header-right">EN &nbsp; | &nbsp; FR</div>
   </header>
 
-  <main class="menu-section" id="menu">
+
+  <!-- CREPE MENU -->
+
+  <main class="crepe-section" id="menu">
 
     <div class="menu-heading">
       <p class="menu-eyebrow">Freshly made · Thoughtfully crafted</p>
@@ -528,6 +702,7 @@ footer {
         </div>
       </article>
 
+
       <!-- RASPBERRY CLOUD -->
 
       <article class="menu-item">
@@ -560,6 +735,7 @@ footer {
         </div>
       </article>
 
+
       <!-- LOTUS DREAM -->
 
       <article class="menu-item">
@@ -591,6 +767,7 @@ footer {
           <span class="price">2,700 AMD</span>
         </div>
       </article>
+
 
       <!-- NUTELLA CINNABON -->
 
@@ -626,6 +803,108 @@ footer {
 
     </div>
   </main>
+
+
+  <!-- COFFEE MENU -->
+
+  <section class="coffee-section" id="coffee">
+
+    <div class="coffee-heading">
+      <p class="menu-eyebrow">A little something to sip</p>
+      <h2 class="menu-title">Coffee Menu</h2>
+      <p class="menu-description">
+        Carefully prepared coffee, made to accompany your favourite crêpe.
+      </p>
+      <div class="heading-line"></div>
+    </div>
+
+    <div class="coffee-layout">
+
+      <!-- LEFT: ATELIER CREPE VIDEO -->
+
+      <div class="coffee-video-wrap">
+        <video
+          class="coffee-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source
+            src="https://cdn.shopify.com/videos/c/o/v/fd00f488e2514ac290702a523afb3846.mov"
+            type="video/quicktime"
+          >
+          Your browser does not support this video.
+        </video>
+
+        <p class="video-caption">
+          Atelier Crêpe · Made with care
+        </p>
+      </div>
+
+
+      <!-- RIGHT: COFFEE LIST -->
+
+      <div class="coffee-list">
+
+        <!-- AMERICANO -->
+
+        <article class="coffee-item">
+          <div class="coffee-info">
+            <h3 class="coffee-name">Americano</h3>
+            <p class="coffee-description">
+              A smooth and aromatic espresso, gently lengthened with hot water. Rich in flavour, light in texture and beautifully balanced.
+            </p>
+          </div>
+          <div class="coffee-price">1,000 AMD</div>
+        </article>
+
+
+        <!-- CAPPUCCINO -->
+
+        <article class="coffee-item">
+          <div class="coffee-info">
+            <h3 class="coffee-name">Cappuccino</h3>
+            <p class="coffee-description">
+              A classic espresso blended with steamed milk and topped with a delicate layer of velvety milk foam. Smooth, creamy and perfectly balanced.
+            </p>
+          </div>
+          <div class="coffee-price">1,200 AMD</div>
+        </article>
+
+
+        <!-- LATTE -->
+
+        <article class="coffee-item">
+          <div class="coffee-info">
+            <h3 class="coffee-name">Latte</h3>
+            <p class="coffee-description">
+              Rich espresso meets silky steamed milk, finished with a light layer of soft foam. A gentle, creamy coffee for a quiet moment.
+            </p>
+          </div>
+          <div class="coffee-price">1,200 AMD</div>
+        </article>
+
+
+        <!-- AFFOGATO -->
+
+        <article class="coffee-item">
+          <div class="coffee-info">
+            <h3 class="coffee-name">Affogato</h3>
+            <p class="coffee-description">
+              A scoop of smooth vanilla ice cream, finished with a shot of freshly brewed espresso. A beautiful meeting of warm coffee and cold sweetness.
+            </p>
+          </div>
+          <div class="coffee-price">1,600 AMD</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
 
   <footer id="about">
     <span>French crêpes<br>& crafted with care</span>
