@@ -1,276 +1,364 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#4b171d">
 <title>Maison Crêpe — French Crêpe Atelier</title>
 
 <style>
-:root{
- --bg:#4b171d;
- --bg-deep:#351015;
- --ink:#f0e5d8;
- --muted:#c7aaa0;
- --line:rgba(240,229,216,.42);
- --accent:#d4b3a4;
- --panel:rgba(255,245,235,.045)
+:root {
+  --bg: #4b171d;
+  --ink: #f0e5d8;
+  --muted: #c7aaa0;
+  --line: rgba(240,229,216,.3);
 }
-*{box-sizing:border-box}
-html{background:var(--bg)}
-body{
- margin:0;
- color:var(--ink);
- background:radial-gradient(ellipse at 52% 42%,#68242a 0%,#50191f 48%,#351015 100%);
- font-family:Georgia,"Times New Roman",serif;
- min-height:100vh
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 52% 42%, #68242a, #50191f 48%, #351015);
+  font-family: Georgia, "Times New Roman", serif;
 }
-.page{min-height:100vh;padding:30px 4.7vw 24px;max-width:1800px;margin:auto}
-header{
- display:grid;
- grid-template-columns:1fr auto 1fr;
- align-items:center;
- min-height:94px;
- border-bottom:1px solid rgba(240,229,216,.13);
- padding-bottom:17px
+
+.page {
+  min-height: 100vh;
+  padding: 30px 4.7vw 24px;
+  max-width: 1800px;
+  margin: auto;
 }
-.brand{justify-self:start;text-align:left}
-.brand-name{
- font-family:"Brush Script MT","Segoe Script",cursive;
- font-size:clamp(34px,4vw,53px);
- font-weight:400;
- line-height:.9;
- letter-spacing:-.045em;
- color:var(--ink);
- margin:0
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 94px;
+  border-bottom: 1px solid rgba(240,229,216,.13);
+  padding-bottom: 17px;
 }
-.brand-sub{
- font:9px Arial,sans-serif;
- letter-spacing:.34em;
- text-transform:uppercase;
- margin:12px 0 0 23px;
- color:var(--muted)
+
+.brand-name {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(34px,4vw,53px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.045em;
+  margin: 0;
 }
-.nav{display:flex;gap:clamp(22px,5vw,72px);align-items:center}
-.nav a,.language{
- color:var(--ink);
- text-decoration:none;
- font:10px Arial,sans-serif;
- letter-spacing:.24em;
- text-transform:uppercase
+
+.brand-sub {
+  font: 9px Arial, sans-serif;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  margin: 12px 0 0 23px;
+  color: var(--muted);
 }
-.header-right{justify-self:end;display:flex;gap:26px;align-items:center}
-.menu-toggle{
- width:48px;height:48px;
- border:1px solid var(--line);
- border-radius:50%;
- display:grid;
- place-items:center;
- color:var(--ink);
- font-size:19px
+
+.nav {
+  display: flex;
+  gap: clamp(22px,5vw,72px);
 }
-.hero{
- display:grid;
- grid-template-columns:minmax(230px,.82fr) minmax(360px,1.45fr) minmax(150px,.58fr);
- align-items:center;
- gap:2.2vw;
- min-height:calc(100vh - 190px);
- padding:22px 0 10px
+
+.nav a, .language {
+  color: var(--ink);
+  text-decoration: none;
+  font: 10px Arial, sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
 }
-.left-panel{align-self:center;padding:20px 0 0 2vw;position:relative;z-index:2}
-.counter{font-size:17px;letter-spacing:.2em;color:var(--ink);line-height:1.7}
-.counter span{display:block;width:1px;height:30px;background:var(--line);margin:5px 0}
-.flavour-title{
- font:400 clamp(44px,5vw,76px)/.91 Georgia,serif;
- letter-spacing:.055em;
- text-transform:uppercase;
- margin:36px 0 17px
+
+.header-right {
+  justify-self: end;
+  display: flex;
+  gap: 26px;
+  align-items: center;
 }
-.jp-line{font-size:13px;letter-spacing:.16em;color:var(--muted);margin:0 0 22px}
-.short-rule{width:62px;border-top:1px solid var(--line);margin:0 0 21px}
-.ingredients{font-size:17px;line-height:1.7;letter-spacing:.045em;color:#ead9cf;max-width:290px}
-.ingredients-small{font-size:10px;letter-spacing:.13em;color:var(--muted);margin-top:12px}
-.details-btn{
- display:inline-flex;
- align-items:center;
- justify-content:space-between;
- gap:35px;
- margin-top:35px;
- padding:18px 21px;
- border:1px solid var(--line);
- min-width:245px;
- color:var(--ink);
- text-decoration:none;
- font:10px Arial,sans-serif;
- letter-spacing:.25em;
- text-transform:uppercase;
- background:transparent
+
+.menu-toggle {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
-.details-btn span{font-size:20px;font-family:Arial,sans-serif;font-weight:200}
-#scene-wrap{
- width:100%;
- height:min(66vh,660px);
- min-height:450px;
- position:relative;
- display:flex;
- align-items:center;
- justify-content:center
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(230px,.82fr) minmax(360px,1.45fr) minmax(150px,.58fr);
+  align-items: center;
+  gap: 2.2vw;
+  min-height: calc(100vh - 190px);
+  padding: 22px 0 10px;
 }
-#scene-wrap canvas{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
-#scene-wrap canvas:active{cursor:grabbing}
-.hint{
- position:absolute;
- bottom:2px;
- left:0;right:0;
- text-align:center;
- color:rgba(240,229,216,.55);
- font:8px Arial,sans-serif;
- letter-spacing:.2em;
- text-transform:uppercase;
- pointer-events:none
+
+.left-panel {
+  padding: 20px 0 0 2vw;
+  position: relative;
+  z-index: 2;
 }
-.action-row{display:none}
-.right-panel{display:flex;flex-direction:column;gap:26px;align-items:stretch}
-.item{
- display:grid;
- grid-template-columns:minmax(58px,90px) 1fr;
- align-items:center;
- gap:14px;
- padding:5px 0;
- border:0;
- background:transparent;
- cursor:pointer;
- color:var(--ink);
- text-align:left;
- transition:opacity .25s;
- opacity:.72
+
+.counter {
+  font-size: 17px;
+  letter-spacing: .2em;
+  line-height: 1.7;
 }
-.item:hover,.item.selected{opacity:1}
-.item .number{
- font:10px Arial,sans-serif;
- letter-spacing:.2em;
- color:var(--muted);
- grid-column:2;
- grid-row:1
+
+.counter span {
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: var(--line);
+  margin: 5px 0;
 }
-.item h2{
- font:400 13px/1.5 Georgia,serif;
- letter-spacing:.16em;
- text-transform:uppercase;
- margin:7px 0 0;
- grid-column:2;
- grid-row:2
+
+.flavour-title {
+  font: 400 clamp(44px,5vw,76px)/.91 Georgia,serif;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  margin: 36px 0 17px;
 }
-.item p{display:none}
-.item .select-label{display:none}
-.item:before{
- content:"";
- grid-column:1;
- grid-row:1 / span 2;
- width:78px;
- height:116px;
- background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,0)),var(--thumb);
- clip-path:polygon(4% 0,96% 0,52% 100%);
- border:1px solid rgba(255,255,255,.16);
- filter:saturate(.78);
- opacity:.9
+
+.subtitle {
+  font-size: 13px;
+  letter-spacing: .16em;
+  color: var(--muted);
+  margin-bottom: 22px;
 }
-.item[data-id="0"]{--thumb:linear-gradient(160deg,#e6bd83 0 45%,#9e4d42 46% 100%)}
-.item[data-id="1"]{--thumb:linear-gradient(160deg,#f0dfc9 0 45%,#d9bba6 46% 100%)}
-.item[data-id="2"]{--thumb:linear-gradient(160deg,#c7a06f 0 45%,#62544b 46% 100%)}
-footer{
- display:grid;
- grid-template-columns:auto 1fr auto;
- align-items:center;
- gap:34px;
- color:var(--muted);
- font:9px/1.8 Arial,sans-serif;
- letter-spacing:.28em;
- text-transform:uppercase;
- margin-top:0;
- padding:10px 0 0
+
+.short-rule {
+  width: 62px;
+  border-top: 1px solid var(--line);
+  margin-bottom: 21px;
 }
-footer:before{
- content:"";
- height:1px;
- background:var(--line);
- grid-column:2;
- grid-row:1
+
+.ingredients {
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: .045em;
+  max-width: 290px;
+  color: #ead9cf;
 }
-@media(max-width:900px){
- .page{padding:22px 24px}
- header{grid-template-columns:1fr auto}
- .nav{display:none}
- .hero{grid-template-columns:1fr 1.6fr;gap:10px;min-height:auto}
- .left-panel{padding-left:0}
- #scene-wrap{grid-column:2;grid-row:1;height:570px;min-height:390px}
- .right-panel{
-  grid-column:1 / -1;
-  grid-row:2;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px
- }
- .item{grid-template-columns:55px 1fr;gap:9px}
- .item:before{width:52px;height:82px}
- .item h2{font-size:10px}
- .flavour-title{font-size:clamp(34px,6vw,55px)}
- .ingredients{font-size:14px}
- footer{margin-top:20px}
+
+.ingredients-small {
+  font-size: 10px;
+  letter-spacing: .13em;
+  color: var(--muted);
+  margin-top: 12px;
 }
-@media(max-width:560px){
- .page{padding:18px 18px 22px}
- header{min-height:76px;padding-bottom:13px}
- .brand-name{font-size:35px}
- .brand-sub{font-size:7px;margin:9px 0 0 14px}
- .header-right{gap:13px}
- .language{font-size:8px}
- .menu-toggle{width:39px;height:39px}
- .hero{
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  padding-top:10px;
-  gap:0
- }
- .left-panel{order:2;padding:0 5px}
- #scene-wrap{order:1;width:100%;height:390px;min-height:0;margin:0 auto}
- .hint{bottom:0;font-size:7px}
- .counter{display:none}
- .flavour-title{font-size:42px;margin:5px 0 10px}
- .jp-line{margin-bottom:14px}
- .short-rule{margin-bottom:12px}
- .ingredients{font-size:15px;max-width:none}
- .ingredients-small{font-size:9px}
- .details-btn{margin-top:19px;padding:14px 17px;min-width:210px}
- .right-panel{
-  order:3;
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:8px;
-  margin-top:28px
- }
- .item{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:5px;
-  padding:8px 5px;
-  border-top:1px solid rgba(240,229,216,.2)
- }
- .item:before{width:46px;height:70px;margin:0 auto 4px;align-self:center}
- .item .number{font-size:8px}
- .item h2{font-size:9px;letter-spacing:.1em}
- footer{
-  grid-template-columns:1fr;
-  gap:9px;
-  font-size:7px;
-  letter-spacing:.19em;
-  text-align:center;
-  margin-top:26px
- }
- footer:before{grid-column:1;grid-row:1}
+
+.details-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  margin-top: 35px;
+  padding: 18px 21px;
+  border: 1px solid var(--line);
+  min-width: 245px;
+  color: var(--ink);
+  text-decoration: none;
+  font: 10px Arial,sans-serif;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+.details-btn span {
+  font-size: 20px;
+}
+
+#scene-wrap {
+  width: 100%;
+  height: min(66vh,660px);
+  min-height: 450px;
+  position: relative;
+}
+
+#scene-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+#scene-wrap canvas:active {
+  cursor: grabbing;
+}
+
+.hint {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(240,229,216,.55);
+  font: 8px Arial,sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+  text-align: left;
+  opacity: .65;
+  transition: opacity .25s;
+}
+
+.item:hover,
+.item.selected {
+  opacity: 1;
+}
+
+.item .number {
+  font: 10px Arial,sans-serif;
+  letter-spacing: .2em;
+  color: var(--muted);
+}
+
+.item h2 {
+  font: 400 13px/1.5 Georgia,serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 7px 0 0;
+}
+
+.item:before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 65px;
+  height: 100px;
+  clip-path: polygon(4% 0,96% 0,52% 100%);
+  border: 1px solid rgba(255,255,255,.16);
+}
+
+.item[data-id="0"]:before {
+  background: linear-gradient(160deg,#e6bd83 0 45%,#9e4d42 46% 100%);
+}
+
+.item[data-id="1"]:before {
+  background: linear-gradient(160deg,#f0dfc9 0 45%,#d9bba6 46% 100%);
+}
+
+.item[data-id="2"]:before {
+  background: linear-gradient(160deg,#c7a06f 0 45%,#62544b 46% 100%);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 34px;
+  color: var(--muted);
+  font: 9px/1.8 Arial,sans-serif;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+footer:before {
+  content: "";
+  height: 1px;
+  background: var(--line);
+}
+
+@media(max-width:900px) {
+  .page { padding: 22px 24px; }
+  header { grid-template-columns: 1fr auto; }
+  .nav { display: none; }
+  .hero {
+    grid-template-columns: 1fr 1.6fr;
+    min-height: auto;
+  }
+  .left-panel { padding-left: 0; }
+  #scene-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    height: 570px;
+    min-height: 390px;
+  }
+  .right-panel {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media(max-width:560px) {
+  .page { padding: 18px; }
+  header { min-height: 76px; }
+  .brand-name { font-size: 35px; }
+  .brand-sub { font-size: 7px; }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #scene-wrap {
+    order: 1;
+    height: 390px;
+    min-height: 0;
+  }
+  .left-panel {
+    order: 2;
+    padding: 0 5px;
+  }
+  .counter { display: none; }
+  .flavour-title {
+    font-size: 42px;
+    margin: 5px 0 10px;
+  }
+  .ingredients { font-size: 15px; }
+  .right-panel {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(240,229,216,.2);
+  }
+  .item:before {
+    width: 46px;
+    height: 70px;
+    align-self: center;
+  }
+  .item h2 {
+    font-size: 9px;
+    letter-spacing: .1em;
+  }
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin-top: 26px;
+  }
 }
 </style>
 </head>
@@ -279,1016 +367,88 @@ footer:before{
 <div class="page">
 
 <header>
- <div class="brand">
-  <p class="brand-name">Maison Crêpe</p>
-  <p class="brand-sub">French Crêpe Atelier</p>
- </div>
+  <div class="brand">
+    <p class="brand-name">Maison Crêpe</p>
+    <p class="brand-sub">French Crêpe Atelier</p>
+  </div>
 
- <nav class="nav" aria-label="Main navigation">
-  <a href="#menu">Menu</a>
-  <a href="#about">About</a>
-  <a href="#location">Location</a>
- </nav>
+  <nav class="nav">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#location">Location</a>
+  </nav>
 
- <div class="header-right">
-  <span class="language">EN&nbsp; | &nbsp;FR</span>
-  <span class="menu-toggle" aria-hidden="true">☰</span>
- </div>
+  <div class="header-right">
+    <span class="language">EN | FR</span>
+    <span class="menu-toggle">☰</span>
+  </div>
 </header>
 
 <main class="hero" id="menu">
 
- <section class="left-panel" aria-live="polite">
-  <div class="counter" id="flavour-counter">01<span></span>03</div>
+  <section class="left-panel">
+    <div class="counter" id="counter">01<span></span>03</div>
 
-  <h1 class="flavour-title" id="hero-title">Berry<br>Choco</h1>
+    <h1 class="flavour-title" id="hero-title">Berry<br>Choco</h1>
 
-  <p class="jp-line">A signature creation</p>
+    <p class="subtitle">A signature creation</p>
 
-  <div class="short-rule"></div>
+    <div class="short-rule"></div>
 
-  <div class="ingredients" id="hero-ingredients">
-   Strawberry, Banana,<br>Nutella, Whipped Cream
+    <div class="ingredients" id="hero-ingredients">
+      Strawberry, Banana,<br>Nutella, Whipped Cream
+    </div>
+
+    <div class="ingredients-small" id="hero-note">
+      Freshly made · Thoughtfully crafted
+    </div>
+
+    <a class="details-btn" href="#menu">
+      View details <span>⟶</span>
+    </a>
+  </section>
+
+  <div id="scene-wrap">
+    <p class="hint">Drag to turn · Select a flavour</p>
   </div>
 
-  <div class="ingredients-small" id="hero-note">
-   Freshly made · Thoughtfully crafted
-  </div>
+  <section class="right-panel">
 
-  <a class="details-btn" href="#menu">
-   View details <span>⟶</span>
-  </a>
- </section>
+    <article class="item selected" data-id="0" tabindex="0" role="button">
+      <span class="number">01</span>
+      <div><h2>Berry<br>Choco</h2></div>
+    </article>
 
- <div id="scene-wrap" aria-label="Interactive 3D display of three crepe cones">
-  <p class="hint">Drag to turn · Select a flavour</p>
- </div>
+    <article class="item" data-id="1" tabindex="0" role="button">
+      <span class="number">02</span>
+      <div><h2>Raspberry<br>Cloud</h2></div>
+    </article>
 
- <section class="right-panel" aria-label="Choose a crepe flavour">
+    <article class="item" data-id="2" tabindex="0" role="button">
+      <span class="number">03</span>
+      <div><h2>Lotus<br>Dream</h2></div>
+    </article>
 
-  <article class="item selected" data-id="0" tabindex="0" role="button" aria-label="Select Berry Choco">
-   <span class="number">01</span>
-   <div><h2>Berry<br>Choco</h2></div>
-  </article>
-
-  <article class="item" data-id="1" tabindex="0" role="button" aria-label="Select Raspberry Cloud">
-   <span class="number">02</span>
-   <div><h2>Raspberry<br>Cloud</h2></div>
-  </article>
-
-  <article class="item" data-id="2" tabindex="0" role="button" aria-label="Select Lotus Dream">
-   <span class="number">03</span>
-   <div><h2>Lotus<br>Dream</h2></div>
-  </article>
-
- </section>
+  </section>
 </main>
 
 <footer>
- <span>French crêpes<br>& crafted with care</span>
- <span>Maison Crêpe</span>
- <span>Made fresh, just for you</span>
+  <span>French crêpes<br>& crafted with care</span>
+  <span>Maison Crêpe</span>
+  <span>Made fresh, just for you</span>
 </footer>
 
 </div>
 
-<script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
-
-const host=document.querySelector('#scene-wrap');
-const scene=new THREE.Scene();
-scene.background=new THREE.Color(0x4b171d);
-
-const camera=new THREE.PerspectiveCamera(35,1,.1,100);
-camera.position.set(0,4.5,11.8);
-
-const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.12;
-host.appendChild(renderer.domElement);
-
-const controls=new OrbitControls(camera,renderer.domElement);
-controls.enableDamping=true;
-controls.enablePan=false;
-controls.minPolarAngle=.85;
-controls.maxPolarAngle=1.75;
-controls.minDistance=9;
-controls.maxDistance=15;
-controls.target.set(0,1.6,0);
-
-scene.add(new THREE.HemisphereLight(0xffffff,0xb8a08a,1.65));
-
-const warmKey=new THREE.DirectionalLight(0xffe4bd,2.0);
-warmKey.position.set(-4,7,6);
-scene.add(warmKey);
-
-const softRim=new THREE.DirectionalLight(0xffffff,1.05);
-softRim.position.set(4,5,-5);
-scene.add(softRim);
-
-const toppingLight=new THREE.PointLight(0xffe2bd,1.15,9);
-toppingLight.position.set(-1.5,5.2,4.5);
-scene.add(toppingLight);
-
-const key=new THREE.DirectionalLight(0xffffff,3.0);
-key.position.set(-4,8,7);
-scene.add(key);
-
-const fill=new THREE.DirectionalLight(0xffd6ae,1.25);
-fill.position.set(5,4,-5);
-scene.add(fill);
-
-const floor=new THREE.Mesh(
- new THREE.CircleGeometry(7,80),
- new THREE.MeshBasicMaterial({color:0x4b171d})
-);
-floor.rotation.x=-Math.PI/2;
-floor.position.y=-.06;
-scene.add(floor);
-
-const texLoader=new THREE.TextureLoader();
-const shared={};
-
-function loadTexture(name){
- if(!shared[name]){
-  shared[name]=texLoader.load('assets/'+name+'.png');
-  shared[name].colorSpace=THREE.SRGBColorSpace;
- }
- return shared[name]
-}
-
-const recipes=[
- {spread:'nutella',fruit:['strawberry','banana'],cream:0x4c2015},
- {spread:'white_cream',fruit:['raspberry'],cream:0xf0d7ad},
- {spread:'lotus_cream',fruit:['banana','lotus_cookie'],cream:0x9b5528}
-];
-
-const crepes=[];
-
-const crepeTexture=(()=>{
- const canvas=document.createElement('canvas');
- canvas.width=512;
- canvas.height=512;
- const ctx=canvas.getContext('2d');
-
- ctx.fillStyle='#e7bd7e';
- ctx.fillRect(0,0,512,512);
-
- for(let i=0;i<12500;i++){
-  const x=Math.random()*512;
-  const y=Math.random()*512;
-  const r=Math.random()*2.8+.25;
-
-  ctx.globalAlpha=Math.random()*(Math.random()>.43?.16:.10);
-  ctx.fillStyle=Math.random()>.43?'#9b592d':'#fff0c9';
-
-  ctx.beginPath();
-  ctx.ellipse(x,y,r,r*(.45+Math.random()),Math.random()*Math.PI,0,Math.PI*2);
-  ctx.fill();
- }
-
- for(let i=0;i<70;i++){
-  const x=Math.random()*512;
-  const y=Math.random()*512;
-  const r=8+Math.random()*28;
-
-  const g=ctx.createRadialGradient(x,y,1,x,y,r);
-  g.addColorStop(0,'rgba(139,75,34,.18)');
-  g.addColorStop(1,'rgba(139,75,34,0)');
-
-  ctx.fillStyle=g;
-  ctx.beginPath();
-  ctx.arc(x,y,r,0,Math.PI*2);
-  ctx.fill();
- }
-
- ctx.globalAlpha=1;
-
- const tex=new THREE.CanvasTexture(canvas);
- tex.colorSpace=THREE.SRGBColorSpace;
- tex.wrapS=tex.wrapT=THREE.RepeatWrapping;
- tex.repeat.set(2,1);
- return tex;
-})();
-
-function makeCrepeTexture(){return crepeTexture;}
-
-function addBerryChocoDetails(group){
- const berryMat=new THREE.MeshStandardMaterial({color:0xc92f32,roughness:.38});
- const seedMat=new THREE.MeshStandardMaterial({color:0xffe5b0,roughness:.58});
- const leafMat=new THREE.MeshStandardMaterial({color:0x557342,roughness:.8});
-
- function strawberry(x,y,z,s,turn){
-  const berry=new THREE.Group();
-  berry.position.set(x,y,z);
-  berry.rotation.y=turn;
-  berry.scale.setScalar(s);
-
-  const profile=[
-   new THREE.Vector2(0,0),
-   new THREE.Vector2(.075,.025),
-   new THREE.Vector2(.135,.10),
-   new THREE.Vector2(.16,.20),
-   new THREE.Vector2(.145,.30),
-   new THREE.Vector2(.10,.38),
-   new THREE.Vector2(.045,.43),
-   new THREE.Vector2(0,.44)
-  ];
-
-  const body=new THREE.Mesh(new THREE.LatheGeometry(profile,24),berryMat);
-  body.rotation.z=Math.PI;
-  body.position.y=.18;
-  berry.add(body);
-
-  for(let row=0;row<4;row++){
-   const yy=.02+row*.085;
-
-   for(let j=0;j<5;j++){
-    const a=(j/5)*Math.PI*2+(row%2)*.32;
-
-    const radius=.13-row*.022;
-    const seed=new THREE.Mesh(new THREE.SphereGeometry(.009,7,6),seedMat);
-
-    seed.position.set(Math.cos(a)*radius,yy,Math.sin(a)*radius);
-    seed.scale.set(.7,1.35,.7);
-    berry.add(seed);
-   }
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
   }
-
-  for(let j=0;j<4;j++){
-   const leaf=new THREE.Mesh(new THREE.ConeGeometry(.045,.13,5),leafMat);
-   const a=j*Math.PI/2;
-
-   leaf.position.set(Math.cos(a)*.055,.19,Math.sin(a)*.055);
-   leaf.rotation.z=Math.cos(a)*-.7;
-   leaf.rotation.x=Math.sin(a)*.7;
-   berry.add(leaf);
-  }
-
-  group.add(berry);
- }
-
- strawberry(-.48,3.12,.20,.95,-.25);
- strawberry(.18,3.15,-.28,.83,.35);
- strawberry(.54,3.05,.18,.72,.8);
-
- const bananaSide=new THREE.MeshStandardMaterial({color:0xe7bd54,roughness:.48});
- const bananaFace=new THREE.MeshStandardMaterial({color:0xffe29a,roughness:.5});
- const bananaInner=new THREE.MeshStandardMaterial({color:0xf4cc72,roughness:.52});
-
- function bananaSlice(x,y,z,r,angle){
-  const g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.rotation.set(-1.12,angle,.10);
-
-  const edge=new THREE.Mesh(new THREE.CylinderGeometry(r,r,.075,28),bananaSide);
-  g.add(edge);
-
-  const face=new THREE.Mesh(new THREE.CircleGeometry(r*.91,28),bananaFace);
-  face.position.y=.039;
-  g.add(face);
-
-  const centre=new THREE.Mesh(new THREE.CircleGeometry(r*.18,16),bananaInner);
-  centre.position.y=.041;
-  g.add(centre);
-
-  group.add(g);
- }
-
- bananaSlice(-.67,3.02,-.12,.19,-.2);
- bananaSlice(.70,3.08,-.18,.17,.35);
- bananaSlice(.02,3.23,.43,.16,.1);
-
- const chocMat=new THREE.MeshStandardMaterial({color:0x3c170f,roughness:.24,metalness:.02});
-
- const paths=[
-  [[-.78,3.17,.04],[-.48,3.25,.16],[-.18,3.22,.28],[.10,3.27,.22],[.42,3.22,.10],[.73,3.15,.02]],
-  [[-.52,3.22,-.28],[-.22,3.28,-.16],[.10,3.25,-.12],[.42,3.19,-.24]]
- ];
-
- paths.forEach((pts,k)=>{
-  const curve=new THREE.CatmullRomCurve3(pts.map(v=>new THREE.Vector3(...v)));
-
-  const ribbon=new THREE.Mesh(
-   new THREE.TubeGeometry(curve,48,k===0?.032:.024,8,false),
-   chocMat
-  );
-
-  group.add(ribbon);
- });
 }
-
-function addRaspberryCloudDetails(group){
- const berryMat=new THREE.MeshStandardMaterial({color:0xc9364b,roughness:.42});
- const creamMat=new THREE.MeshStandardMaterial({color:0xfff0d8,roughness:.34});
- const creamHi=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.3});
-
- function raspberry(x,y,z,s){
-  const cluster=new THREE.Group();
-  cluster.position.set(x,y,z);
-  cluster.scale.setScalar(s);
-
-  const rings=[
-   {n:7,r:.105,y:0,size:.075},
-   {n:6,r:.075,y:.085,size:.07},
-   {n:4,r:.038,y:.16,size:.064}
-  ];
-
-  rings.forEach((ring,ri)=>{
-   for(let j=0;j<ring.n;j++){
-    const a=j/ring.n*Math.PI*2+ri*.22;
-    const bead=new THREE.Mesh(new THREE.SphereGeometry(ring.size,12,10),berryMat);
-
-    bead.position.set(Math.cos(a)*ring.r,ring.y,Math.sin(a)*ring.r);
-    cluster.add(bead);
-   }
-  });
-
-  const top=new THREE.Mesh(new THREE.SphereGeometry(.047,12,10),berryMat);
-  top.position.y=.215;
-  cluster.add(top);
-  group.add(cluster);
- }
-
- raspberry(-.42,3.10,.22,.95);
- raspberry(.28,3.16,-.22,.88);
- raspberry(.62,3.06,.20,.72);
-
- function creamSwirl(x,z,scale){
-  const pts=[];
-
-  for(let i=0;i<=70;i++){
-   const t=i/70;
-   const ang=t*Math.PI*5;
-   const r=.20*(1-t)+.018;
-
-   pts.push(new THREE.Vector3(
-    x+Math.cos(ang)*r*scale,
-    3.02+t*.34,
-    z+Math.sin(ang)*r*scale
-   ));
-  }
-
-  const curve=new THREE.CatmullRomCurve3(pts);
-  const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,80,.055*scale,10,false),creamMat);
-  group.add(tube);
-
-  const tip=new THREE.Mesh(new THREE.SphereGeometry(.052*scale,12,10),creamHi);
-  tip.position.copy(pts[pts.length-1]);
-  group.add(tip);
- }
-
- creamSwirl(-.18,.02,.9);
- creamSwirl(.46,-.12,.72);
-}
-
-function addLotusDreamDetails(group){
- const caramelMat=new THREE.MeshStandardMaterial({color:0x9b572b,roughness:.27});
- const cookieMat=new THREE.MeshStandardMaterial({color:0xb9783e,roughness:.82});
- const cookieLight=new THREE.MeshStandardMaterial({color:0xd79a5b,roughness:.78});
-
- [
-  [[-.72,3.14,.08],[-.42,3.22,.22],[-.12,3.18,.29],[.18,3.24,.20],[.50,3.18,.12],[.72,3.12,-.02]],
-  [[-.42,3.20,-.22],[-.12,3.25,-.14],[.20,3.21,-.18],[.50,3.16,-.25]]
- ].forEach((pts,i)=>{
-  const curve=new THREE.CatmullRomCurve3(pts.map(v=>new THREE.Vector3(...v)));
-
-  group.add(new THREE.Mesh(
-   new THREE.TubeGeometry(curve,48,i===0?.035:.025,8,false),
-   caramelMat
-  ));
- });
-
- const shapes=[
-  {x:-.48,y:3.18,z:.22,rz:-.28,s:.30},
-  {x:.34,y:3.20,z:-.24,rz:.35,s:.25},
-  {x:.66,y:3.10,z:.16,rz:-.1,s:.19},
-  {x:-.05,y:3.25,z:-.02,rz:.5,s:.17}
- ];
-
- shapes.forEach((v,i)=>{
-  const piece=new THREE.Mesh(
-   new THREE.BoxGeometry(v.s,v.s*.12,v.s*.72),
-   i%2?cookieLight:cookieMat
-  );
-
-  piece.position.set(v.x,v.y,v.z);
-  piece.rotation.set(-.12,v.rz,.16);
-  group.add(piece);
-
-  const crumb=new THREE.Mesh(new THREE.DodecahedronGeometry(v.s*.12,0),cookieLight);
-  crumb.position.set(v.x+.02,v.y+.075,v.z+.01);
-  group.add(crumb);
- });
-
- for(let k=0;k<15;k++){
-  const crumb=new THREE.Mesh(
-   new THREE.DodecahedronGeometry(.018+Math.random()*.028,0),
-   k%3?cookieMat:cookieLight
-  );
-
-  const a=k*2.399;
-  crumb.position.set(
-   Math.cos(a)*(.3+Math.random()*.48),
-   3.02+Math.random()*.32,
-   Math.sin(a)*(.3+Math.random()*.4)
-  );
-
-  group.add(crumb);
- }
-}
-
-function addSoftCreamMound(group,x,y,z,sx,sy,sz,color=0xf7e6d4){
- const mat=new THREE.MeshStandardMaterial({color,roughness:.42});
- const geo=new THREE.SphereGeometry(1,32,24);
- const mound=new THREE.Mesh(geo,mat);
-
- mound.position.set(x,y,z);
- mound.scale.set(sx,sy,sz);
- group.add(mound);
-
- return mound;
-}
-
-function addNaturalBerryChocoFinish(group){
- const chocCream=new THREE.MeshStandardMaterial({color:0x54271b,roughness:.31});
-
- [
-  [-.34,3.04,.04,.48,.16,.36],
-  [.10,3.07,-.08,.47,.18,.38],
-  [.43,3.02,.12,.34,.14,.31]
- ].forEach(v=>{
-  const m=new THREE.Mesh(new THREE.SphereGeometry(1,28,20),chocCream);
-  m.position.set(v[0],v[1],v[2]);
-  m.scale.set(v[3],v[4],v[5]);
-  group.add(m);
- });
-
- const red=new THREE.MeshStandardMaterial({color:0xc92e37,roughness:.36});
- const cut=new THREE.MeshStandardMaterial({color:0xffd5c4,roughness:.46});
- const seeds=new THREE.MeshStandardMaterial({color:0xffe6b2,roughness:.58});
-
- function half(x,y,z,s,rot){
-  const g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.rotation.y=rot;
-  g.scale.setScalar(s);
-
-  const shell=new THREE.Mesh(
-   new THREE.SphereGeometry(.19,24,18,0,Math.PI*2,0,Math.PI/2),
-   red
-  );
-
-  shell.scale.set(1.0,1.25,.72);
-  shell.rotation.z=Math.PI;
-  g.add(shell);
-
-  const face=new THREE.Mesh(new THREE.CircleGeometry(.145,24),cut);
-  face.position.set(0,.012,.126);
-  face.rotation.x=-.08;
-  g.add(face);
-
-  for(let i=0;i<9;i++){
-   const a=i*2.399;
-   const r=.105;
-   const seed=new THREE.Mesh(new THREE.SphereGeometry(.008,7,6),seeds);
-
-   seed.position.set(Math.cos(a)*r,.02+((i%3)-1)*.035,.145);
-   g.add(seed);
-  }
-
-  group.add(g);
- }
-
- half(-.54,3.22,.25,.95,-.35);
- half(.20,3.24,-.27,.9,.28);
- half(.62,3.14,.14,.76,.7);
-
- const bananaRind=new THREE.MeshStandardMaterial({color:0xd4a13e,roughness:.48});
- const bananaFlesh=new THREE.MeshStandardMaterial({color:0xffe4a0,roughness:.5});
-
- function slice(x,y,z,r,rot){
-  const g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.rotation.set(-1.32,rot,.08);
-
-  const bevel=new THREE.Mesh(new THREE.CylinderGeometry(r*.92,r,.085,32),bananaRind);
-  g.add(bevel);
-
-  const top=new THREE.Mesh(new THREE.CircleGeometry(r*.88,32),bananaFlesh);
-  top.position.y=.044;
-  g.add(top);
-
-  const centre=new THREE.Mesh(new THREE.SphereGeometry(r*.12,10,8),bananaRind);
-  centre.position.set(0,.048,0);
-  centre.scale.y=.3;
-  g.add(centre);
-
-  group.add(g);
- }
-
- slice(-.72,3.13,-.04,.17,-.2);
- slice(.68,3.18,-.16,.16,.3);
- slice(.03,3.28,.42,.145,.1);
-}
-
-function addNaturalRaspberryFinish(group){
- const raspberry=new THREE.MeshStandardMaterial({color:0xc9344b,roughness:.4});
- const cream=new THREE.MeshStandardMaterial({color:0xfff1dc,roughness:.35});
- const creamShade=new THREE.MeshStandardMaterial({color:0xf0ddc5,roughness:.48});
-
- addSoftCreamMound(group,-.02,3.05,.02,.72,.16,.48,0xfff0dc);
-
- function berry(x,y,z,s){
-  const g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.scale.setScalar(s);
-
-  for(let row=0;row<3;row++){
-   const n=[7,6,4][row];
-   const rad=[.105,.073,.035][row];
-   const yy=[0,.07,.14][row];
-   const sz=[.064,.059,.052][row];
-
-   for(let j=0;j<n;j++){
-    const a=j/n*Math.PI*2+row*.24;
-
-    const b=new THREE.Mesh(new THREE.SphereGeometry(sz,12,10),raspberry);
-    b.position.set(Math.cos(a)*rad,yy,Math.sin(a)*rad);
-    g.add(b);
-   }
-  }
-
-  group.add(g);
- }
-
- berry(-.48,3.18,.2,.95);
- berry(.24,3.20,-.22,.9);
- berry(.62,3.13,.18,.75);
-
- [[-.28,.02,.95],[.38,-.08,.76]].forEach(([x,z,s])=>{
-  const pts=[];
-
-  for(let i=0;i<=64;i++){
-   const t=i/64;
-   const a=t*Math.PI*4.5;
-   const r=.17*(1-t)+.012;
-
-   pts.push(new THREE.Vector3(
-    x+Math.cos(a)*r*s,
-    3.10+t*.25,
-    z+Math.sin(a)*r*s
-   ));
-  }
-
-  const tube=new THREE.Mesh(
-   new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),72,.052*s,10,false),
-   cream
-  );
-
-  group.add(tube);
- });
-}
-
-function addNaturalLotusFinish(group){
- const spread=new THREE.MeshStandardMaterial({color:0x9b572c,roughness:.34});
-
- addSoftCreamMound(group,-.02,3.04,.02,.72,.17,.48,0xb97843);
-
- [
-  [-.35,3.18,.18,.42,.055,.22],
-  [.20,3.20,-.14,.42,.06,.24],
-  [.52,3.14,.16,.25,.05,.20]
- ].forEach(v=>{
-  const m=new THREE.Mesh(new THREE.SphereGeometry(1,28,18),spread);
-  m.position.set(v[0],v[1],v[2]);
-  m.scale.set(v[3],v[4],v[5]);
-  group.add(m);
- });
-
- const biscuit=new THREE.MeshStandardMaterial({color:0xc48a50,roughness:.82});
- const biscuitDark=new THREE.MeshStandardMaterial({color:0x9e6639,roughness:.88});
-
- for(let i=0;i<8;i++){
-  const s=.10+Math.random()*.10;
-
-  const piece=new THREE.Mesh(
-   new THREE.DodecahedronGeometry(s,0),
-   i%3?biscuit:biscuitDark
-  );
-
-  const a=i*2.399;
-  const r=.18+Math.random()*.52;
-
-  piece.position.set(
-   Math.cos(a)*r,
-   3.19+Math.random()*.12,
-   Math.sin(a)*r
-  );
-
-  piece.rotation.set(Math.random(),Math.random()*Math.PI,Math.random());
-  group.add(piece);
- }
-}
-
-function makeCrepe(x,index){
- const root=new THREE.Group();
- root.position.x=x;
- scene.add(root);
-
- const shellMat=new THREE.MeshStandardMaterial({
-  color:0xf1d09a,
-  map:makeCrepeTexture(),
-  roughness:.9,
-  side:THREE.DoubleSide
- });
-
- const radial=80;
- const steps=36;
- const verts=[];
- const uv=[];
- const indices=[];
-
- for(let j=0;j<=steps;j++){
-  const v=j/steps;
-  const r=.06+1.12*v;
-  const y=.12+2.72*v;
-
-  for(let i=0;i<=radial;i++){
-   const a=i/radial*Math.PI*2;
-   const wav=(Math.sin(a*5+.4)+.35*Math.sin(a*11)+.18*Math.sin(a*17+.8))*0.035*v;
-   const verticalDrift=.018*Math.sin(a*3+.7)*v;
-
-   verts.push(
-    Math.cos(a)*(r+wav),
-    y+.025*Math.sin(a*4)*v+verticalDrift,
-    Math.sin(a)*(r+wav)
-   );
-
-   uv.push(i/radial,v);
-  }
- }
-
- for(let j=0;j<steps;j++){
-  for(let i=0;i<radial;i++){
-   const a=j*(radial+1)+i;
-   const b=a+radial+1;
-   indices.push(a,b,a+1,b,b+1,a+1);
-  }
- }
-
- const geo=new THREE.BufferGeometry();
- geo.setAttribute('position',new THREE.Float32BufferAttribute(verts,3));
- geo.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
- geo.setIndex(indices);
- geo.computeVertexNormals();
-
- root.add(new THREE.Mesh(geo,shellMat));
-
- const lipPoints=[];
-
- for(let i=0;i<=120;i++){
-  const a=i/120*Math.PI*2;
-  const r=1.13+.025*Math.sin(a*5)+.012*Math.sin(a*9);
-
-  lipPoints.push(new THREE.Vector3(
-   Math.cos(a)*r,
-   2.86+.025*Math.sin(a*4),
-   Math.sin(a)*r
-  ));
- }
-
- const lip=new THREE.Mesh(
-  new THREE.TubeGeometry(new THREE.CatmullRomCurve3(lipPoints),120,.052,8,false),
-  new THREE.MeshStandardMaterial({color:0xf0ca8e,roughness:.82})
- );
-
- root.add(lip);
-
- const foldPts=[];
-
- for(let i=0;i<=120;i++){
-  const a=i/120*Math.PI*2;
-  const r=1.105+.035*Math.sin(a*5+.5)+.018*Math.sin(a*13);
-
-  foldPts.push(new THREE.Vector3(
-   Math.cos(a)*r,
-   2.79+.045*Math.sin(a*5),
-   Math.sin(a)*r
-  ));
- }
-
- const fold=new THREE.Mesh(
-  new THREE.TubeGeometry(new THREE.CatmullRomCurve3(foldPts),120,.022,6,false),
-  new THREE.MeshStandardMaterial({color:0xdba967,roughness:.88})
- );
-
- root.add(fold);
-
- const edgeVerts=[];
- const edgeIndices=[];
- const edgeUv=[];
- const edgeSteps=160;
-
- for(let i=0;i<=edgeSteps;i++){
-  const a=i/edgeSteps*Math.PI*2;
-  const wave=.045*Math.sin(a*7+.3)+.022*Math.sin(a*13);
-  const radius=1.105+.035*Math.sin(a*5+.5)+.018*Math.sin(a*13);
-  const yTop=2.835+wave*.45;
-  const yBottom=2.77+wave;
-
-  edgeVerts.push(Math.cos(a)*(radius-.035),yTop,Math.sin(a)*(radius-.035));
-  edgeVerts.push(Math.cos(a)*(radius+.075),yBottom,Math.sin(a)*(radius+.075));
-
-  edgeUv.push(i/edgeSteps,1,i/edgeSteps,0);
- }
-
- for(let i=0;i<edgeSteps;i++){
-  const n=i*2;
-  edgeIndices.push(n,n+1,n+2,n+1,n+3,n+2);
- }
-
- const edgeGeo=new THREE.BufferGeometry();
-
- edgeGeo.setAttribute('position',new THREE.Float32BufferAttribute(edgeVerts,3));
- edgeGeo.setAttribute('uv',new THREE.Float32BufferAttribute(edgeUv,2));
- edgeGeo.setIndex(edgeIndices);
- edgeGeo.computeVertexNormals();
-
- const edgeMesh=new THREE.Mesh(
-  edgeGeo,
-  new THREE.MeshStandardMaterial({color:0xe9c184,roughness:.94,side:THREE.DoubleSide})
- );
-
- root.add(edgeMesh);
-
- const creaseMat=new THREE.MeshStandardMaterial({
-  color:0xb77a42,
-  transparent:true,
-  opacity:.18,
-  roughness:1
- });
-
- for(let k=0;k<9;k++){
-  const a=k/9*Math.PI*2+.12;
-  const pts=[];
-
-  for(let j=0;j<=24;j++){
-   const t=j/24;
-   const rr=.09+1.06*t;
-   const yy=.18+2.55*t;
-   const aa=a+.025*Math.sin(t*5+k);
-
-   pts.push(new THREE.Vector3(Math.cos(aa)*rr,yy,Math.sin(aa)*rr));
-  }
-
-  const crease=new THREE.Mesh(
-   new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),32,.009,5,false),
-   creaseMat
-  );
-
-  root.add(crease);
- }
-
- const inner=new THREE.Mesh(
-  new THREE.ConeGeometry(1.075,2.68,80,1,true),
-  new THREE.MeshStandardMaterial({color:0xc47c37,roughness:.86,side:THREE.BackSide})
- );
-
- inner.position.y=1.52;
- root.add(inner);
-
- const shadow=new THREE.Mesh(
-  new THREE.CircleGeometry(1.35,48),
-  new THREE.MeshBasicMaterial({color:0x8d7a68,transparent:true,opacity:.14})
- );
-
- shadow.rotation.x=-Math.PI/2;
- shadow.scale.set(1,.55,1);
- shadow.position.set(0,.005,0);
- root.add(shadow);
-
- const fill=new THREE.Group();
- root.add(fill);
-
- const mound=new THREE.Mesh(
-  new THREE.SphereGeometry(1,32,20),
-  new THREE.MeshStandardMaterial({color:recipes[index].cream,roughness:.45})
- );
-
- mound.scale.set(.78,.23,.72);
- mound.position.set(0,2.63,0);
- fill.add(mound);
-
- const spr=makeIngredient(recipes[index].spread,1.48,.98,0,2.82,.05,0);
- fill.add(spr);
-
- const coords=index===0
-  ?[[-.34,3.04,.30,.86,.66,.16],[.30,3.10,.26,.88,.67,-.16],[-.05,3.20,-.25,.80,.62,.05]]
-  :[[-.34,3.02,.30,.76,.58,.16],[.30,3.08,.26,.78,.6,-.16],[-.05,3.18,-.25,.70,.56,.05]];
-
- recipes[index].fruit.forEach((name,i)=>{
-  const c=coords[i];
-  fill.add(makeIngredient(name,c[3],c[4],c[0],c[1],c[2],c[5]));
- });
-
- if(index===0)addBerryChocoDetails(fill);
- if(index===1)addRaspberryCloudDetails(fill);
- if(index===2)addLotusDreamDetails(fill);
-
- if(index===0)addNaturalBerryChocoFinish(fill);
- if(index===1)addNaturalRaspberryFinish(fill);
- if(index===2)addNaturalLotusFinish(fill);
-
- if(index===2){
-  const crumbMat=new THREE.MeshStandardMaterial({color:0xc7833f,roughness:.8});
-
-  for(let k=0;k<9;k++){
-   const b=new THREE.Mesh(
-    new THREE.DodecahedronGeometry(.045+Math.random()*.035,0),
-    crumbMat
-   );
-
-   const a=k*2.4;
-   b.position.set(
-    Math.cos(a)*(.38+Math.random()*.3),
-    2.98+Math.random()*.28,
-    Math.sin(a)*(.38+Math.random()*.3)
-   );
-
-   fill.add(b);
-  }
- }
-
- root.userData.fill=fill;
- root.userData.index=index;
- root.userData.baseScale=1;
-
- const assemblyParts=[];
-
- fill.children.forEach((part,partIndex)=>{
-  const targetScale=part.scale.clone();
-  const targetY=part.position.y;
-
-  assemblyParts.push({
-   part,
-   targetScale,
-   targetY,
-   delay:partIndex*78
-  });
-
-  part.scale.setScalar(.001);
-  part.position.y=targetY-.72;
- });
-
- root.userData.assemblyParts=assemblyParts;
- root.userData.assemblyStart=performance.now()+index*260;
-
- crepes.push(root);
-}
-
-function makeIngredient(name,w,h,x,y,z,rot){
- const mat=new THREE.MeshBasicMaterial({
-  map:loadTexture(name),
-  transparent:true,
-  alphaTest:.025,
-  side:THREE.DoubleSide,
-  depthWrite:false
- });
-
- const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),mat);
- mesh.position.set(x,y,z);
- mesh.rotation.set(-1.42,rot,0);
-
- return mesh;
-}
-
-makeCrepe(-3.0,0);
-makeCrepe(0,1);
-makeCrepe(3.0,2);
-
-let selected=0;
-
-function replayAssembly(index){
- const root=crepes[index];
- root.userData.assemblyStart=performance.now();
-
- root.userData.assemblyParts.forEach(({part,targetScale,targetY})=>{
-  part.scale.setScalar(.001);
-  part.position.y=targetY-.72;
- });
-}
-
-function updateAssembly(root,now){
- const elapsed=now-root.userData.assemblyStart;
-
- root.userData.assemblyParts.forEach(({part,targetScale,targetY,delay})=>{
-  const raw=Math.max(0,Math.min(1,(elapsed-delay)/520));
-  const eased=raw>=1?1:1-Math.pow(1-raw,3);
-  const scaleFactor=.001+.999*eased;
-
-  part.scale.copy(targetScale).multiplyScalar(scaleFactor);
-  part.position.y=targetY-.72*(1-eased);
- });
-}
-
-const flavourCopy=[
- {
-  title:'Berry<br>Choco',
-  ingredients:'Strawberry, Banana,<br>Nutella, Whipped Cream',
-  note:'Strawberry · Banana · Nutella'
- },
- {
-  title:'Raspberry<br>Cloud',
-  ingredients:'White Cream,<br>Fresh Raspberry',
-  note:'White cream · Raspberry'
- },
- {
-  title:'Lotus<br>Dream',
-  ingredients:'Lotus Cream,<br>Banana, Lotus Cookie',
-  note:'Lotus biscuit · Banana · Cream'
- }
-];
-
-function updateHeroCopy(i){
- const c=flavourCopy[i];
-
- document.querySelector('#hero-title').innerHTML=c.title;
- document.querySelector('#hero-ingredients').innerHTML=c.ingredients;
- document.querySelector('#hero-note').textContent=c.note;
-
- document.querySelector('#flavour-counter').innerHTML=
-  String(i+1).padStart(2,'0')+'<span></span>03';
-}
-
-function select(i){
- selected=i;
- updateHeroCopy(i);
- replayAssembly(i);
-
- crepes.forEach((c,n)=>{
-  c.visible=n===i;
-  c.scale.setScalar(n===i?1.22:.91);
-  c.position.y=n===i?.04:0;
- });
-
- document.querySelectorAll('.item').forEach((el,n)=>{
-  el.classList.toggle('selected',n===i);
- });
-}
-
-document.querySelectorAll('.item').forEach(el=>{
- const go=()=>select(Number(el.dataset.id));
-
- el.addEventListener('click',go);
-
- el.addEventListener('keydown',e=>{
-  if(e.key==='Enter'||e.key===' '){
-   e.preventDefault();
-   go();
-  }
- });
-});
-
-select(0);
-
-function resize(){
- const w=host.clientWidth;
- const h=host.clientHeight;
-
- renderer.setSize(w,h,false);
- camera.aspect=w/h;
- camera.updateProjectionMatrix();
-}
-
-new ResizeObserver(resize).observe(host);
-resize();
-
-function animate(){
- requestAnimationFrame(animate);
-
- controls.update();
-
- const now=performance.now();
- const t=now*.001;
-
- crepes.forEach((c,i)=>{
-  updateAssembly(c,now);
-
-  c.rotation.y=Math.sin(t*.35+i*.8)*.035;
-
-  c.position.y+=(
-   (i===selected?.12:0)+Math.sin(t*1.1+i*.6)*.012-c.position.y
-  )*.035;
- });
-
- renderer.render(scene,camera);
-}
-
-animate();
 </script>
-</body>
-</html>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/Orbit
