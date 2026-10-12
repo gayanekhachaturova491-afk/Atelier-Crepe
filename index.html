@@ -1,1 +1,1290 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f4ec">
+  <title>Maison Crêpe | Digital Menu</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <!-- Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --cream: #f8f4ec;
+      --white: #fffdf9;
+      --brown: #493025;
+      --brown-light: #80634f;
+      --pink: #d77b75;
+      --green: #69765a;
+      --border: #e8dfd2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* HEADER */
+
+    header {
+      height: 82px;
+      padding: 0 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(248,244,236,.95);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--pink);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      color: var(--brown);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .cart-button, .primary-button {
+      background: var(--brown);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .cart-button:hover, .primary-button:hover {
+      background: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 620px;
+      padding: 55px 9%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-label {
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 1.08;
+      max-width: 550px;
+      font-weight: 500;
+    }
+
+    .hero h1 em {
+      color: var(--pink);
+      font-weight: 500;
+    }
+
+    .hero-description {
+      color: var(--brown-light);
+      line-height: 1.8;
+      font-size: 15px;
+      max-width: 390px;
+      margin: 25px 0 30px;
+    }
+
+    .hero-note {
+      margin-top: 22px;
+      font-size: 11px;
+      color: var(--brown-light);
+      letter-spacing: 1px;
+    }
+
+    .hero-visual {
+      height: 490px;
+      position: relative;
+    }
+
+    #crepe-scene {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+
+    #crepe-scene:active {
+      cursor: grabbing;
+    }
+
+    .hero-sticker {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background: var(--pink);
+      color: white;
+      border-radius: 50%;
+      width: 105px;
+      height: 105px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+
+    /* SECTION */
+
+    .menu-section {
+      padding: 85px 8%;
+      background: var(--white);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      color: var(--pink);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 54px);
+      font-weight: 500;
+    }
+
+    .section-heading p {
+      color: var(--brown-light);
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* FILTERS */
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 45px;
+    }
+
+    .filter {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--brown);
+      border-radius: 30px;
+      padding: 12px 23px;
+      font-size: 12px;
+      transition: .25s;
+    }
+
+    .filter.active, .filter:hover {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: white;
+    }
+
+    /* MENU GRID */
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .food-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(73,48,37,.08);
+    }
+
+    .food-image {
+      height: 235px;
+      position: relative;
+      overflow: hidden;
+      background: #eadfce;
+    }
+
+    .food-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .food-card:hover .food-image img {
+      transform: scale(1.06);
+    }
+
+    .food-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 7px 12px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .food-info {
+      padding: 21px;
+    }
+
+    .food-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .food-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .price {
+      color: var(--pink);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .food-info p {
+      color: var(--brown-light);
+      font-size: 12px;
+      line-height: 1.7;
+      margin: 12px 0 18px;
+      min-height: 40px;
+    }
+
+    .food-actions {
+      display: flex;
+      gap: 9px;
+    }
+
+    .details-button, .add-button {
+      border: 1px solid var(--brown);
+      border-radius: 25px;
+      padding: 10px 15px;
+      font-size: 11px;
+      font-weight: 600;
+      flex: 1;
+      transition: .2s;
+    }
+
+    .details-button {
+      background: transparent;
+      color: var(--brown);
+    }
+
+    .add-button {
+      background: var(--brown);
+      color: white;
+    }
+
+    .details-button:hover {
+      background: var(--brown);
+      color: white;
+    }
+
+    .add-button:hover {
+      background: var(--pink);
+      border-color: var(--pink);
+    }
+
+    /* ABOUT STRIP */
+
+    .bottom-banner {
+      background: #eadfd1;
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .bottom-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 500;
+    }
+
+    .bottom-banner p {
+      color: var(--brown-light);
+      margin-top: 13px;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 28px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      font-size: 11px;
+      color: var(--brown-light);
+    }
+
+    /* MODAL */
+
+    .modal-overlay, .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(35,24,18,.55);
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show, .cart-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(450px, 100%);
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      animation: appear .25s ease;
+    }
+
+    @keyframes appear {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .modal img {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      padding: 25px;
+    }
+
+    .modal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 29px;
+      font-weight: 500;
+    }
+
+    .modal-content p {
+      color: var(--brown-light);
+      line-height: 1.8;
+      font-size: 13px;
+      margin: 12px 0 20px;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      border: none;
+      background: white;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 20px;
+      z-index: 2;
+    }
+
+    /* CART */
+
+    .cart-overlay {
+      justify-content: flex-end;
+      padding: 0;
+    }
+
+    .cart-panel {
+      width: min(420px, 100%);
+      height: 100%;
+      background: var(--white);
+      padding: 30px;
+      overflow-y: auto;
+      animation: appear .25s ease;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .cart-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .cart-item small {
+      display: block;
+      color: var(--brown-light);
+      margin-top: 6px;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .quantity button {
+      border: 1px solid var(--border);
+      background: transparent;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      padding: 25px 0;
+    }
+
+    .checkout {
+      width: 100%;
+      padding: 15px;
+    }
+
+    .empty-cart {
+      color: var(--brown-light);
+      text-align: center;
+      padding: 45px 0;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 7% 20px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-visual {
+        height: 360px;
+      }
+
+      .hero-sticker {
+        right: 10%;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      nav {
+        gap: 15px;
+      }
+    }
+
+    @media(max-width: 550px) {
+      header {
+        height: 70px;
+        padding: 0 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      .cart-button {
+        padding: 11px 16px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        height: 300px;
+      }
+
+      .hero-sticker {
+        width: 78px;
+        height: 78px;
+        font-size: 13px;
+      }
+
+      .menu-section {
+        padding: 65px 5%;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .food-image {
+        height: 250px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Maison <span>Crêpe.</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Our Menu</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+      My Order (<span id="cart-count">0</span>)
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <div class="hero-label">A little taste of France</div>
+
+      <h1>
+        Happiness is<br>
+        a <em>fresh</em> crêpe.
+      </h1>
+
+      <p class="hero-description">
+        Made with love, filled with your favourite flavours
+        and served fresh every single day.
+        Discover your next favourite crêpe.
+      </p>
+
+      <a href="#menu">
+        <button class="primary-button">Explore Our Menu →</button>
+      </a>
+
+      <div class="hero-note">
+        FRESHLY MADE · SWEET MOMENTS · GOOD FOOD
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div id="crepe-scene"></div>
+      <div class="hero-sticker">Made with<br>♡ love</div>
+    </div>
+
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+
+    <div class="section-heading">
+      <div class="eyebrow">Discover our menu</div>
+      <h2>Made to make you smile.</h2>
+      <p>Find something delicious for every mood.</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-category="all">All Menu</button>
+      <button class="filter" data-category="sweet">Sweet Crêpes</button>
+      <button class="filter" data-category="signature">Signature</button>
+      <button class="filter" data-category="savory">Savory</button>
+      <button class="filter" data-category="drinks">Drinks</button>
+    </div>
+
+    <div class="menu-grid" id="menu-grid"></div>
+
+  </section>
+
+  <!-- BOTTOM -->
+  <section class="bottom-banner">
+    <h2>A little sweetness goes a long way.</h2>
+    <p>Thank you for sharing a sweet moment with Maison Crêpe ♡</p>
+  </section>
+
+  <footer>
+    <div class="logo">Maison <span>Crêpe.</span></div>
+    <div>Made with love & fresh ingredients.</div>
+    <div>© 2026 Maison Crêpe</div>
+  </footer>
+
+  <!-- FOOD DETAILS MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="close" onclick="hideModal()">×</button>
+      <img id="modal-image" src="" alt="">
+      <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <div class="food-top">
+          <strong id="modal-price" class="price"></strong>
+          <button class="primary-button" id="modal-add">Add to Order +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart(event)">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <button class="close" onclick="hideCart()">×</button>
+      </div>
+
+      <div id="cart-items"></div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total">0 ֏</span>
+      </div>
+
+      <button class="primary-button checkout" onclick="checkout()">
+        Confirm Order
+      </button>
+
+      <p style="font-size:11px;color:#80634f;margin-top:15px;text-align:center">
+        Demo menu · Orders are not sent to the café.
+      </p>
+    </div>
+  </div>
+
+  <!-- WEBSITE JAVASCRIPT -->
+  <script>
+    const products = [
+      {
+        id: 1,
+        name: "Strawberry Dream",
+        category: "sweet",
+        price: 2800,
+        tag: "Bestseller",
+        description: "Fresh strawberries, silky vanilla cream and a little powdered sugar.",
+        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=85"
+      },
+      {
+        id: 2,
+        name: "Banana Nutella",
+        category: "sweet",
+        price: 3000,
+        tag: "Favourite",
+        description: "Sweet banana slices, rich chocolate hazelnut spread and crushed hazelnuts.",
+        image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800&q=85"
+      },
+      {
+        id: 3,
+        name: "Peanut Butter Love",
+        category: "sweet",
+        price: 3200,
+        tag: "Popular",
+        description: "Creamy peanut butter, banana, chocolate drizzle and roasted peanuts.",
+        image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=85"
+      },
+      {
+        id: 4,
+        name: "Berry Heaven",
+        category: "signature",
+        price: 3500,
+        tag: "Signature",
+        description: "A beautiful mix of strawberries, blueberries, cream and berry sauce.",
+        image: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=85"
+      },
+      {
+        id: 5,
+        name: "Chocolate Bliss",
+        category: "signature",
+        price: 3300,
+        tag: "Chocolate",
+        description: "Warm chocolate sauce, chocolate shavings and creamy vanilla filling.",
+        image: "https://images.unsplash.com/photo-1511381939415-e44015466834?w=800&q=85"
+      },
+      {
+        id: 6,
+        name: "Caramel Banana",
+        category: "signature",
+        price: 3400,
+        tag: "Sweet",
+        description: "Fresh banana, homemade salted caramel and a touch of cream.",
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=85"
+      },
+      {
+        id: 7,
+        name: "Ham & Cheese",
+        category: "savory",
+        price: 3800,
+        tag: "Savory",
+        description: "Golden crêpe filled with melted cheese, ham and fresh herbs.",
+        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=85"
+      },
+      {
+        id: 8,
+        name: "Chicken & Cheese",
+        category: "savory",
+        price: 4000,
+        tag: "Popular",
+        description: "Tender chicken, melted cheese and a delicious creamy sauce.",
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=85"
+      },
+      {
+        id: 9,
+        name: "Iced Strawberry Latte",
+        category: "drinks",
+        price: 1800,
+        tag: "Refreshing",
+        description: "Creamy iced milk drink with espresso and sweet strawberry flavour.",
+        image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=85"
+      }
+    ];
+
+    let cart = [];
+    let activeProduct = null;
+
+    const money = value =>
+      new Intl.NumberFormat("en-US").format(value) + " ֏";
+
+    // RENDER MENU
+    function renderMenu(category = "all") {
+      const grid = document.getElementById("menu-grid");
+
+      const filtered = category === "all"
+        ? products
+        : products.filter(item => item.category === category);
+
+      grid.innerHTML = filtered.map(item => `
+        <article class="food-card">
+          <div class="food-image">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <span class="food-tag">${item.tag}</span>
+          </div>
+
+          <div class="food-info">
+            <div class="food-top">
+              <h3>${item.name}</h3>
+              <span class="price">${money(item.price)}</span>
+            </div>
+
+            <p>${item.description}</p>
+
+            <div class="food-actions">
+              <button class="details-button"
+                onclick="showDetails(${item.id})">
+                Details
+              </button>
+
+              <button class="add-button"
+                onclick="addToCart(${item.id})">
+                + Add
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    // FILTERS
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelector(".filter.active")
+          ?.classList.remove("active");
+
+        button.classList.add("active");
+        renderMenu(button.dataset.category);
+      });
+    });
+
+    // DETAILS MODAL
+    function showDetails(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      activeProduct = item;
+
+      document.getElementById("modal-image").src = item.image;
+      document.getElementById("modal-image").alt = item.name;
+      document.getElementById("modal-title").textContent = item.name;
+      document.getElementById("modal-description").textContent = item.description;
+      document.getElementById("modal-price").textContent = money(item.price);
+
+      document.getElementById("modal-overlay").classList.add("show");
+    }
+
+    function hideModal() {
+      document.getElementById("modal-overlay").classList.remove("show");
+    }
+
+    function closeModal(event) {
+      if (event.target.id === "modal-overlay") hideModal();
+    }
+
+    document.getElementById("modal-add").addEventListener("click", () => {
+      if (activeProduct) addToCart(activeProduct.id);
+      hideModal();
+    });
+
+    // CART
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      const existing = cart.find(p => p.id === id);
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({...item, quantity: 1});
+      }
+
+      updateCart();
+    }
+
+    function changeQuantity(id, amount) {
+      const item = cart.find(p => p.id === id);
+      if (!item) return;
+
+      item.quantity += amount;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter(p => p.id !== id);
+      }
+
+      updateCart();
+    }
+
+    function updateCart() {
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
+
+      document.getElementById("cart-count").textContent = count;
+      document.getElementById("cart-total").textContent = money(total);
+
+      const container = document.getElementById("cart-items");
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart">
+            Your order is empty.<br><br>
+            Let's find something delicious!
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div>
+            <strong>${item.name}</strong>
+            <small>${money(item.price * item.quantity)}</small>
+          </div>
+
+          <div class="quantity">
+            <button onclick="changeQuantity(${item.id}, -1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQuantity(${item.id}, 1)">+</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function openCart() {
+      document.getElementById("cart-overlay").classList.add("show");
+    }
+
+    function hideCart() {
+      document.getElementById("cart-overlay").classList.remove("show");
+    }
+
+    function closeCart(event) {
+      if (event.target.id === "cart-overlay") hideCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your order is empty!");
+        return;
+      }
+
+      alert("Thank you! This is a demo menu. Online ordering is not connected yet.");
+    }
+
+    renderMenu();
+    updateCart();
+  </script>
+
+  <!-- THREE.JS 3D SCENE -->
+  <script type="module">
+    import * as THREE from "three";
+
+    const container = document.getElementById("crepe-scene");
+
+    try {
+      const scene = new THREE.Scene();
+      scene.background = null;
+
+      const camera = new THREE.PerspectiveCamera(
+        35,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        100
+      );
+
+      camera.position.set(0, 4.5, 8.5);
+      camera.lookAt(0, 0, 0);
+
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+      });
+
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.3;
+
+      container.appendChild(renderer.domElement);
+
+      // LIGHTING
+      const ambient = new THREE.AmbientLight(0xffffff, 2);
+      scene.add(ambient);
+
+      const mainLight = new THREE.DirectionalLight(0xffffff, 3);
+      mainLight.position.set(4, 8, 5);
+      mainLight.castShadow = true;
+      scene.add(mainLight);
+
+      const fillLight = new THREE.PointLight(0xf5a6a0, 40);
+      fillLight.position.set(-4, 3, 2);
+      scene.add(fillLight);
+
+      // MAIN GROUP
+      const crepeGroup = new THREE.Group();
+      scene.add(crepeGroup);
+
+      // PLATE
+      const plateMaterial = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.25,
+        metalness: 0.05
+      });
+
+      const plate = new THREE.Mesh(
+        new THREE.CylinderGeometry(2.3, 2.15, 0.16, 96),
+        plateMaterial
+      );
+
+      plate.position.y = -0.1;
+      plate.receiveShadow = true;
+      plate.castShadow = true;
+      crepeGroup.add(plate);
+
+      // PLATE RIM
+      const rim = new THREE.Mesh(
+        new THREE.TorusGeometry(2.12, 0.035, 12, 96),
+        new THREE.MeshStandardMaterial({
+          color: 0xe8ddd0,
+          roughness: 0.3
+        })
+      );
+
+      rim.rotation.x = Math.PI / 2;
+      rim.position.y = 0.0;
+      crepeGroup.add(rim);
+
+      // CREPE BASE
+      const crepeMaterial = new THREE.MeshStandardMaterial({
+        color: 0xd99b4c,
+        roughness: 0.85,
+        side: THREE.DoubleSide
+      });
+
+      const crepe = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.55, 1.65, 0.12, 64),
+        crepeMaterial
+      );
+
+      crepe.position.set(0, 0.12, 0);
+      crepe.scale.set(1.1, 1, 0.85);
+      crepe.rotation.z = -0.18;
+      crepe.castShadow = true;
+      crepeGroup.add(crepe);
+
+      // FOLDED CREPE
+      const folded = new THREE.Mesh(
+        new THREE.SphereGeometry(1, 48, 32),
+        new THREE.MeshStandardMaterial({
+          color: 0xc98235,
+          roughness: 0.8
+        })
+      );
+
+      folded.position.set(0, 0.31, 0.15);
+      folded.scale.set(1.3, 0.25, 0.8);
+      folded.castShadow = true;
+      crepeGroup.add(folded);
+
+      // CHOCOLATE DRIZZLE
+      const chocolateMaterial = new THREE.MeshStandardMaterial({
+        color: 0x542817,
+        roughness: 0.3
+      });
+
+      for (let i = 0; i < 7; i++) {
+        const curve = new THREE.CatmullRomCurve3([
+          new THREE.Vector3(-1.1 + i * 0.32, 0.51, -0.5),
+          new THREE.Vector3(-0.7 + i * 0.25, 0.54, 0.0),
+          new THREE.Vector3(-0.9 + i * 0.29, 0.51, 0.5)
+        ]);
+
+        const drizzle = new THREE.Mesh(
+          new THREE.TubeGeometry(curve, 24, 0.025, 8, false),
+          chocolateMaterial
+        );
+
+        crepeGroup.add(drizzle);
+      }
+
+      // STRAWBERRIES
+      const strawberryMaterial = new THREE.MeshStandardMaterial({
+        color: 0xe94b55,
+        roughness: 0.5
+      });
+
+      const strawberryGreen = new THREE.MeshStandardMaterial({
+        color: 0x567b3c
+      });
+
+      function addStrawberry(x, y, z, scale = 1) {
+        const group = new THREE.Group();
+
+        const berry = new THREE.Mesh(
+          new THREE.SphereGeometry(0.23, 24, 20),
+          strawberryMaterial
+        );
+
+        berry.scale.set(0.85, 1.25, 0.85);
+        berry.castShadow = true;
+        group.add(berry);
+
+        const leaves = new THREE.Mesh(
+          new THREE.ConeGeometry(0.13, 0.12, 5),
+          strawberryGreen
+        );
+
+        leaves.position.y = 0.26;
+        leaves.rotation.y = 0.5;
+        group.add(leaves);
+
+        group.position.set(x, y, z);
+        group.scale.setScalar(scale);
+        group.rotation.z = 0.2;
+
+        crepeGroup.add(group);
+      }
+
+      addStrawberry(-0.75, 0.55, 0.15, 0.9);
+      addStrawberry(-0.25, 0.55, 0.35, 0.85);
+      addStrawberry(0.45, 0.55, 0.15, 0.95);
+      addStrawberry(0.8, 0.55, -0.25, 0.75);
+
+      // BANANA SLICES
+      const bananaMaterial = new THREE.MeshStandardMaterial({
+        color: 0xffd76b,
+        roughness: 0.6
+      });
+
+      for (let i = 0; i < 5; i++) {
+        const banana = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.17, 0.17, 0.06, 32),
+          bananaMaterial
+        );
+
+        const angle = i * 1.1;
+        banana.position.set(
+          Math.cos(angle) * 0.8,
+          0.57,
+          Math.sin(angle) * 0.5
+        );
+
+        banana.rotation.x = Math.PI / 2;
+        banana.rotation.z = angle;
+        crepeGroup.add(banana);
+      }
+
+      // FLOOR / SHADOW
+      const floor = new THREE.Mesh(
+        new THREE.CircleGeometry(4, 64),
+        new THREE.ShadowMaterial({
+          opacity: 0.15
+        })
+      );
+
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -0.2;
+      floor.receiveShadow = true;
+      scene.add(floor);
+
+      // ANIMATION
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetX = 0;
+      let targetY = 0;
+
+      container.addEventListener("pointermove", event => {
+        const rect = container.getBoundingClientRect();
+
+        mouseX = ((event.clientX - rect.left) / rect.width - 0.5) * 0.5;
+        mouseY = ((event.clientY - rect.top) / rect.height - 0.5) * 0.25;
+      });
+
+      container.addEventListener("pointerleave", () => {
+        mouseX = 0;
+        mouseY = 0;
+      });
+
+      const clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        const time = clock.getElapsedTime();
+
+        targetX += (mouseY - targetX) * 0.04;
+        targetY += (mouseX - targetY) * 0.04;
+
+        crepeGroup.rotation.y = Math.sin(time * 0.4) * 0.15 + targetY;
+        crepeGroup.rotation.x = targetX;
+        crepeGroup.position.y = Math.sin(time * 1.2) * 0.08;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // RESPONSIVE
+      const resizeObserver = new ResizeObserver(() => {
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        if (!width || !height) return;
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      });
+
+      resizeObserver.observe(container);
+
+    } catch (error) {
+      console.error("3D scene could not load:", error);
+      container.innerHTML =
+        '<p style="text-align:center;padding:100px 20px;color:#80634f">3D preview is unavailable. Please check your internet connection and WebGL support.</p>';
+    }
+  </script>
+
+</body>
+</html>
+
