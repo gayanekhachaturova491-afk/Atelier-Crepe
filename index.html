@@ -33,7 +33,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--cream);
-  background: radial-gradient(ellipse at 52% 42%, #68242a, #50191f 48%, #351015);
+  background: #50191f;
   font-family: "Italiana", Georgia, serif;
 }
 
@@ -349,15 +349,25 @@ header {
   margin: 20px auto 0;
 }
 
-/* COFFEE VIDEO */
+/* COFFEE VIDEO LEFT, MENU RIGHT */
+
+.coffee-layout {
+  width: min(1250px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(35px, 6vw, 90px);
+}
 
 .coffee-video-wrap {
-  width: min(900px, 100%);
-  margin: 0 auto 45px;
+  width: 100%;
+  margin: 0;
   background: #50191f;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .coffee-video {
@@ -368,16 +378,20 @@ header {
   object-fit: contain;
   object-position: center;
   background: #50191f;
+
+  /* Helps blend the video's black areas into the burgundy page */
+  mix-blend-mode: screen;
 }
 
 /* COFFEE MENU ITEMS */
 
 .coffee-menu {
-  max-width: 1050px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 70px;
+  grid-template-columns: 1fr;
+  column-gap: 0;
   row-gap: 0;
 }
 
@@ -649,8 +663,13 @@ footer {
     padding: 40px 0;
   }
 
+  .coffee-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
   .coffee-video-wrap {
-    margin-bottom: 25px;
+    width: 100%;
   }
 
   .coffee-menu {
@@ -790,7 +809,7 @@ footer {
 
 </main>
 
-<!-- COFFEE SECTION: EVERYTHING BELOW THE CREPES -->
+<!-- COFFEE SECTION: BELOW THE CREPES -->
 
 <section class="coffee-section" id="coffee">
 
@@ -800,70 +819,71 @@ footer {
     <div class="coffee-rule"></div>
   </div>
 
-  <!-- FULL VIDEO, NO CROPPING -->
+  <!-- VIDEO/CUPS LEFT, COFFEE NAMES AND PRICES RIGHT -->
 
-  <div class="coffee-video-wrap">
-    <video
-      class="coffee-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-label="Atelier Crêpe coffee cups"
-    >
-      <source
-        src="https://cdn.shopify.com/videos/c/o/v/fd00f488e2514ac290702a523afb3846.mov"
-        type="video/quicktime"
+  <div class="coffee-layout">
+
+    <div class="coffee-video-wrap">
+      <video
+        class="coffee-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Atelier Crêpe coffee cups"
       >
-      Your browser does not support this video.
-    </video>
-  </div>
+        <source
+          src="https://cdn.shopify.com/videos/c/o/v/fd00f488e2514ac290702a523afb3846.mov"
+          type="video/quicktime"
+        >
+        Your browser does not support this video.
+      </video>
+    </div>
 
-  <!-- FOUR COFFEES -->
+    <div class="coffee-menu">
 
-  <div class="coffee-menu">
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Americano</h3>
+          <p class="coffee-description">
+            Smooth espresso topped with hot water. Rich coffee flavour with a clean, delicate finish.
+          </p>
+        </div>
+        <div class="coffee-price">1,800 AMD</div>
+      </article>
 
-    <article class="coffee-item">
-      <div>
-        <h3 class="coffee-name">Americano</h3>
-        <p class="coffee-description">
-          Smooth espresso topped with hot water. Rich coffee flavour with a clean, delicate finish.
-        </p>
-      </div>
-      <div class="coffee-price">1,800 AMD</div>
-    </article>
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Cappuccino</h3>
+          <p class="coffee-description">
+            A perfect balance of espresso, steamed milk and silky foam. Rich, smooth and beautifully balanced.
+          </p>
+        </div>
+        <div class="coffee-price">2,200 AMD</div>
+      </article>
 
-    <article class="coffee-item">
-      <div>
-        <h3 class="coffee-name">Cappuccino</h3>
-        <p class="coffee-description">
-          A perfect balance of espresso, steamed milk and silky foam. Rich, smooth and beautifully balanced.
-        </p>
-      </div>
-      <div class="coffee-price">2,200 AMD</div>
-    </article>
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Latte</h3>
+          <p class="coffee-description">
+            Espresso blended with creamy steamed milk and a light layer of foam. Soft, mellow and comforting.
+          </p>
+        </div>
+        <div class="coffee-price">2,200 AMD</div>
+      </article>
 
-    <article class="coffee-item">
-      <div>
-        <h3 class="coffee-name">Latte</h3>
-        <p class="coffee-description">
-          Espresso blended with creamy steamed milk and a light layer of foam. Soft, mellow and comforting.
-        </p>
-      </div>
-      <div class="coffee-price">2,200 AMD</div>
-    </article>
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Affogato</h3>
+          <p class="coffee-description">
+            A scoop of velvety vanilla ice cream topped with a shot of hot espresso. A little coffee dessert.
+          </p>
+        </div>
+        <div class="coffee-price">2,800 AMD</div>
+      </article>
 
-    <article class="coffee-item">
-      <div>
-        <h3 class="coffee-name">Affogato</h3>
-        <p class="coffee-description">
-          A scoop of velvety vanilla ice cream topped with a shot of hot espresso. A little coffee dessert.
-        </p>
-      </div>
-      <div class="coffee-price">2,800 AMD</div>
-    </article>
-
+    </div>
   </div>
 
 </section>
