@@ -15,7 +15,6 @@
 <style>
 :root {
   --bg: #50191f;
-  --bg-dark: #351015;
   --cream: #f0e5d8;
   --muted: #c7aaa0;
   --line: rgba(240,229,216,.25);
@@ -103,7 +102,7 @@ header {
   opacity: .65;
 }
 
-/* ORIGINAL CREPE MENU */
+/* CREPE SECTION */
 
 .hero {
   flex: 1;
@@ -311,7 +310,7 @@ header {
   text-transform: uppercase;
 }
 
-/* COFFEE SECTION - BELOW CREPES */
+/* COFFEE SECTION */
 
 .coffee-section {
   border-top: 1px solid rgba(240,229,216,.22);
@@ -349,7 +348,7 @@ header {
   margin: 20px auto 0;
 }
 
-/* COFFEE VIDEO LEFT, MENU RIGHT */
+/* VIDEO LEFT / COFFEE MENU RIGHT */
 
 .coffee-layout {
   width: min(1250px, 100%);
@@ -359,6 +358,12 @@ header {
   align-items: center;
   gap: clamp(35px, 6vw, 90px);
 }
+
+/*
+  The video background is black inside the video file.
+  SCREEN blending lets pure black show the burgundy page
+  behind it instead of displaying a black rectangle.
+*/
 
 .coffee-video-wrap {
   width: 100%;
@@ -379,10 +384,10 @@ header {
   object-fit: contain;
   object-position: center;
   background: #50191f;
-  mix-blend-mode: normal;
+  mix-blend-mode: screen;
 }
 
-/* COFFEE MENU ITEMS */
+/* COFFEE ITEMS */
 
 .coffee-menu {
   width: 100%;
@@ -472,7 +477,7 @@ footer {
   position: relative;
   padding: clamp(32px, 6vw, 58px);
   background: var(--cream);
-  color: var(--bg-dark);
+  color: #351015;
   box-shadow: 0 25px 80px rgba(0,0,0,.3);
 }
 
@@ -502,7 +507,7 @@ footer {
 
 .info-card .info-address {
   font-size: 17px;
-  color: var(--bg-dark);
+  color: #351015;
   line-height: 1.7;
 }
 
@@ -512,7 +517,7 @@ footer {
   right: 16px;
   border: 0;
   background: transparent;
-  color: var(--bg-dark);
+  color: #351015;
   font-size: 28px;
   cursor: pointer;
 }
@@ -520,7 +525,7 @@ footer {
 .info-map-link {
   display: inline-block;
   margin-top: 12px;
-  color: var(--bg-dark);
+  color: #351015;
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
   letter-spacing: .18em;
@@ -667,10 +672,6 @@ footer {
     gap: 25px;
   }
 
-  .coffee-video-wrap {
-    margin-bottom: 0;
-  }
-
   .coffee-menu {
     grid-template-columns: 1fr;
   }
@@ -723,7 +724,7 @@ footer {
   </nav>
 </header>
 
-<!-- CREPE SECTION: ORIGINAL LAYOUT -->
+<!-- CREPE SECTION -->
 
 <main class="hero" id="menu">
 
@@ -808,7 +809,7 @@ footer {
 
 </main>
 
-<!-- COFFEE SECTION: BELOW THE CREPES -->
+<!-- COFFEE SECTION BELOW CREPES -->
 
 <section class="coffee-section" id="coffee">
 
@@ -818,9 +819,9 @@ footer {
     <div class="coffee-rule"></div>
   </div>
 
-  <!-- VIDEO/CUPS LEFT, COFFEE NAMES AND PRICES RIGHT -->
-
   <div class="coffee-layout">
+
+    <!-- VIDEO AND CUPS ON THE LEFT -->
 
     <div class="coffee-video-wrap">
       <video
@@ -839,6 +840,8 @@ footer {
         Your browser does not support this video.
       </video>
     </div>
+
+    <!-- COFFEE NAMES AND PRICES ON THE RIGHT -->
 
     <div class="coffee-menu">
 
@@ -1005,7 +1008,7 @@ const infoContent = {
     html: `
       <p>Atelier Crêpe began with a simple idea: bring the warmth of a small French crêperie to the heart of Yerevan.</p>
       <p>We imagine a place where crêpes are made to order, fruit is fresh, chocolate is generous, and every visit feels like a little pause in a busy day.</p>
-      <p>Whether you love strawberries, bananas, or a little extra peanut butter, there is a sweet moment waiting for you at our table.</p>
+      <p>Whether you love strawberries, bananas, or a little extra chocolate, there is a sweet moment waiting for you at our table.</p>
     `
   },
 
