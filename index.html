@@ -5,590 +5,751 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#4b171d">
-<title>Maison Crêpe — French Crêpe Atelier</title>
+<meta name="theme-color" content="#50151f">
+
+<title>Atelier Crêpe — French Crêperie</title>
+
 <style>
-:root{--bg:#4b171d;--ink:#f0e5d8;--muted:#c7aaa0;--line:rgba(240,229,216,.3)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 52% 42%,#68242a,#50191f 48%,#351015);font-family:Georgia,"Times New Roman",serif}
-.page{min-height:100vh;padding:30px 4.7vw 24px;max-width:1800px;margin:auto}
-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:94px;border-bottom:1px solid rgba(240,229,216,.13);padding-bottom:17px}
-.brand-name{font-family:"Brush Script MT","Segoe Script",cursive;font-size:clamp(34px,4vw,53px);font-weight:400;line-height:.9;letter-spacing:-.045em;margin:0}
-.brand-sub{font:9px Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin:12px 0 0 23px;color:var(--muted)}
-.nav{display:flex;gap:clamp(22px,5vw,72px)}
-.nav a,.language{color:var(--ink);text-decoration:none;font:10px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase}
-.header-right{justify-self:end;display:flex;gap:26px;align-items:center}
-.menu-toggle{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
-.hero{display:grid;grid-template-columns:minmax(230px,.82fr) minmax(360px,1.45fr) minmax(150px,.58fr);align-items:center;gap:2.2vw;min-height:calc(100vh - 190px);padding:22px 0 10px}
-.left-panel{padding:20px 0 0 2vw;position:relative;z-index:2}
-.counter{font-size:17px;letter-spacing:.2em;line-height:1.7}
-.counter span{display:block;width:1px;height:30px;background:var(--line);margin:5px 0}
-.flavour-title{font:400 clamp(44px,5vw,76px)/.91 Georgia,serif;letter-spacing:.055em;text-transform:uppercase;margin:36px 0 17px}
-.subtitle{font-size:13px;letter-spacing:.16em;color:var(--muted);margin-bottom:22px}
-.short-rule{width:62px;border-top:1px solid var(--line);margin-bottom:21px}
-.ingredients{font-size:17px;line-height:1.7;letter-spacing:.045em;max-width:290px;color:#ead9cf}
-.ingredients-small{font-size:10px;letter-spacing:.13em;color:var(--muted);margin-top:12px}
-.details-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:35px;margin-top:35px;padding:18px 21px;border:1px solid var(--line);min-width:245px;color:var(--ink);text-decoration:none;font:10px Arial,sans-serif;letter-spacing:.25em;text-transform:uppercase;transition:background .25s}
-.details-btn:hover{background:rgba(240,229,216,.08)}
-.details-btn span{font-size:20px}
-#scene-wrap{width:100%;height:min(66vh,660px);min-height:450px;position:relative;overflow:hidden}
-#scene-wrap canvas{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y;outline:none}
-#scene-wrap canvas:active{cursor:grabbing}
-.hint{position:absolute;bottom:2px;left:0;right:0;text-align:center;color:rgba(240,229,216,.55);font:8px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;pointer-events:none;z-index:2}
-.scene-error{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center;color:var(--muted);font:12px/1.8 Arial,sans-serif;letter-spacing:.08em}
-.right-panel{display:flex;flex-direction:column;gap:26px}
-.item{display:grid;grid-template-columns:78px 1fr;align-items:center;gap:14px;padding:5px 0;border:0;background:transparent;cursor:pointer;color:var(--ink);text-align:left;opacity:.65;transition:opacity .25s}
-.item:hover,.item.selected{opacity:1}
-.item .number{font:10px Arial,sans-serif;letter-spacing:.2em;color:var(--muted)}
-.item h2{font:400 13px/1.5 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;margin:7px 0 0}
-.item:before{content:"";grid-column:1;grid-row:1 / span 2;width:65px;height:100px;clip-path:polygon(4% 0,96% 0,52% 100%);border:1px solid rgba(255,255,255,.16)}
-.item[data-id="0"]:before{background:linear-gradient(160deg,#e6bd83 0 45%,#9e4d42 46% 100%)}
-.item[data-id="1"]:before{background:linear-gradient(160deg,#f0dfc9 0 45%,#d9bba6 46% 100%)}
-.item[data-id="2"]:before{background:linear-gradient(160deg,#c7a06f 0 45%,#62544b 46% 100%)}
-footer{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:34px;color:var(--muted);font:9px/1.8 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;padding-top:10px}
-footer:before{content:"";height:1px;background:var(--line)}
-@media(max-width:900px){
-.page{padding:22px 24px}
-header{grid-template-columns:1fr auto}
-.nav{display:none}
-.hero{grid-template-columns:1fr 1.6fr;min-height:auto}
-.left-panel{padding-left:0}
-#scene-wrap{grid-column:2;grid-row:1;height:570px;min-height:390px}
-.right-panel{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(3,1fr)}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  --burgundy: #50151f;
+  --burgundy-dark: #3d1018;
+  --cream: #f4eadf;
+  --muted: #c9aaa1;
+  --line: rgba(244,234,223,.25);
+  --accent: #d7b99d;
 }
-@media(max-width:560px){
-.page{padding:18px}
-header{min-height:76px}
-.brand-name{font-size:35px}
-.brand-sub{font-size:7px}
-.hero{display:flex;flex-direction:column;align-items:stretch}
-#scene-wrap{order:1;width:100%;height:390px;min-height:0}
-.left-panel{order:2;padding:0 5px}
-.counter{display:none}
-.flavour-title{font-size:42px;margin:5px 0 10px}
-.ingredients{font-size:15px}
-.right-panel{order:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:28px}
-.item{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding-top:8px;border-top:1px solid rgba(240,229,216,.2)}
-.item:before{width:46px;height:70px;align-self:center}
-.item h2{font-size:9px;letter-spacing:.1em}
-footer{grid-template-columns:1fr;text-align:center;margin-top:26px}
-footer:before{display:none}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--burgundy);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* PAGE */
+
+.menu-page {
+  width: 100%;
+  max-width: 1700px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 38px 6.2vw 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-bottom: 27px;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--cream);
+  display: inline-block;
+  width: fit-content;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.logo-subtitle {
+  font-size: 9px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 10px 0 0 2px;
+}
+
+.header-center {
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.header-right {
+  justify-self: end;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* INTRO */
+
+.intro {
+  text-align: center;
+  padding: 65px 0 45px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 9px;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  margin: 0 0 17px;
+}
+
+.intro h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 61px);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.intro-description {
+  color: var(--muted);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  margin: 15px 0 0;
+}
+
+/* MENU CARDS */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 27px;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.crepe-card {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(244,234,223,.22);
+  background: transparent;
+  color: var(--cream);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .3s ease, transform .3s ease;
+  font: inherit;
+}
+
+.crepe-card:hover {
+  border-color: rgba(244,234,223,.7);
+  transform: translateY(-5px);
+}
+
+.crepe-card.active {
+  border-color: var(--accent);
+}
+
+.image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  background: #f0e5d9;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .55s ease;
+}
+
+.crepe-card:hover .image-wrap img {
+  transform: scale(1.045);
+}
+
+.card-content {
+  padding: 23px 21px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-number {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .2em;
+}
+
+.card-price {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2vw, 27px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.card-description {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 10px 0 19px;
+  min-height: 38px;
+}
+
+.card-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  margin-top: auto;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.card-arrow {
+  font-size: 18px;
+  transition: transform .25s ease;
+}
+
+.crepe-card:hover .card-arrow,
+.crepe-card.active .card-arrow {
+  transform: translateX(5px);
+  color: var(--accent);
+}
+
+/* SELECTED CREPE DETAILS */
+
+.details-section {
+  max-width: 850px;
+  width: 100%;
+  margin: 55px auto 0;
+  padding: 30px 35px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 25px;
+  align-items: center;
+  transition: opacity .25s ease;
+}
+
+.details-label {
+  color: var(--accent);
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.details-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+.details-ingredients {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: .04em;
+  margin: 0;
+}
+
+.details-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 27px;
+  white-space: nowrap;
+  color: var(--cream);
+}
+
+/* FOOTER */
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 25px;
+  margin-top: auto;
+  padding-top: 55px;
+}
+
+.footer-line {
+  height: 1px;
+  background: var(--line);
+}
+
+.footer-center {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer-right {
+  justify-self: end;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .menu-page {
+    padding: 28px 4vw;
+  }
+
+  .menu-grid {
+    gap: 15px;
+  }
+
+  .card-content {
+    padding: 17px 15px;
+  }
+
+  .details-section {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-page {
+    padding: 22px 19px;
+  }
+
+  .header {
+    grid-template-columns: 1fr auto;
+    padding-bottom: 21px;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .logo-name {
+    font-size: 30px;
+  }
+
+  .header-right {
+    font-size: 8px;
+  }
+
+  .intro {
+    padding: 48px 0 32px;
+  }
+
+  .intro h1 {
+    font-size: 39px;
+  }
+
+  .intro-description {
+    font-size: 13px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 19px;
+    max-width: 420px;
+  }
+
+  .crepe-card {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 165px;
+  }
+
+  .image-wrap {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 165px;
+  }
+
+  .card-content {
+    padding: 17px 15px;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
+
+  .card-description {
+    font-size: 10px;
+    min-height: 0;
+    margin: 8px 0 14px;
+  }
+
+  .card-action {
+    padding-top: 11px;
+    font-size: 8px;
+  }
+
+  .details-section {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 25px 4px;
+    margin-top: 35px;
+  }
+
+  .details-title {
+    font-size: 23px;
+  }
+
+  .details-ingredients {
+    font-size: 11px;
+  }
+
+  .details-price {
+    font-size: 22px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 38px;
+  }
+
+  .footer-line {
+    display: none;
+  }
+
+  .footer-right {
+    justify-self: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
 }
 </style>
-
-<!-- Исправленное подключение Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
-<div class="page">
 
-<header>
-  <div class="brand">
-    <p class="brand-name">Maison Crêpe</p>
-    <p class="brand-sub">French Crêpe Atelier</p>
-  </div>
-  <nav class="nav">
-    <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#location">Location</a>
-  </nav>
-  <div class="header-right">
-    <span class="language">EN | FR</span>
-    <span class="menu-toggle">☰</span>
-  </div>
-</header>
+<div class="menu-page">
 
-<main class="hero" id="menu">
+  <!-- HEADER -->
+  <header class="header">
 
-<section class="left-panel">
-  <div class="counter" id="counter">01<span></span>03</div>
-  <h1 class="flavour-title" id="hero-title">Berry<br>Choco</h1>
-  <p class="subtitle">A signature creation</p>
-  <div class="short-rule"></div>
-  <div class="ingredients" id="hero-ingredients">
-    Strawberry, Banana,<br>Nutella, Whipped Cream
-  </div>
-  <div class="ingredients-small" id="hero-note">
-    Freshly made · Thoughtfully crafted
-  </div>
-  <a class="details-btn" href="#menu">
-    View details <span>⟶</span>
-  </a>
-</section>
+    <a href="#" class="logo">
+      <p class="logo-name">Atelier Crêpe</p>
+      <p class="logo-subtitle">French Crêperie</p>
+    </a>
 
-<div id="scene-wrap">
-  <p class="hint">Drag to turn · Select a flavour</p>
+    <div class="header-center">
+      Made with love · Served fresh
+    </div>
+
+    <div class="header-right">
+      Menu · 01—03
+    </div>
+
+  </header>
+
+
+  <!-- INTRO -->
+  <section class="intro">
+
+    <p class="eyebrow">Our selection</p>
+
+    <h1>A little moment of sweetness.</h1>
+
+    <p class="intro-description">
+      French crêpes, thoughtfully prepared.
+    </p>
+
+  </section>
+
+
+  <!-- THREE CREPES -->
+  <main>
+
+    <section class="menu-grid" aria-label="Crêpe menu">
+
+      <!-- CREPE 01 -->
+      <button
+        class="crepe-card active"
+        type="button"
+        data-crepe="0"
+        aria-pressed="true"
+      >
+
+        <div class="image-wrap">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_438.jpg?v=1791811725"
+            alt="French crêpe with Nutella, strawberries and banana"
+            loading="eager"
+          >
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-topline">
+            <span class="card-number">01 / SIGNATURE</span>
+            <span class="card-price">2,500 AMD</span>
+          </div>
+
+          <h2 class="card-title">Berry Choco</h2>
+
+          <p class="card-description">
+            A classic combination of chocolate and fresh fruit.
+          </p>
+
+          <div class="card-action">
+            <span>Discover ingredients</span>
+            <span class="card-arrow">→</span>
+          </div>
+
+        </div>
+
+      </button>
+
+
+      <!-- CREPE 02 -->
+      <button
+        class="crepe-card"
+        type="button"
+        data-crepe="1"
+        aria-pressed="false"
+      >
+
+        <div class="image-wrap">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_440.jpg?v=1791811727"
+            alt="French crêpe with white cream and fresh raspberries"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-topline">
+            <span class="card-number">02 / DELICATE</span>
+            <span class="card-price">2,500 AMD</span>
+          </div>
+
+          <h2 class="card-title">Raspberry Cloud</h2>
+
+          <p class="card-description">
+            Soft white cream and the delicate taste of raspberries.
+          </p>
+
+          <div class="card-action">
+            <span>Discover ingredients</span>
+            <span class="card-arrow">→</span>
+          </div>
+
+        </div>
+
+      </button>
+
+
+      <!-- CREPE 03 -->
+      <button
+        class="crepe-card"
+        type="button"
+        data-crepe="2"
+        aria-pressed="false"
+      >
+
+        <div class="image-wrap">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_441.jpg?v=1791811728"
+            alt="French crêpe with Biscoff Lotus cream and biscuits"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-topline">
+            <span class="card-number">03 / INDULGENT</span>
+            <span class="card-price">2,700 AMD</span>
+          </div>
+
+          <h2 class="card-title">Lotus Dream</h2>
+
+          <p class="card-description">
+            Smooth Biscoff cream with a delicious biscuit crunch.
+          </p>
+
+          <div class="card-action">
+            <span>Discover ingredients</span>
+            <span class="card-arrow">→</span>
+          </div>
+
+        </div>
+
+      </button>
+
+    </section>
+
+
+    <!-- INGREDIENTS PANEL -->
+    <section class="details-section" id="crepe-details" aria-live="polite">
+
+      <div>
+
+        <p class="details-label" id="details-label">
+          01 · Selected crêpe
+        </p>
+
+        <h2 class="details-title" id="details-title">
+          Berry Choco
+        </h2>
+
+        <p class="details-ingredients" id="details-ingredients">
+          Nutella · Fresh strawberries · Banana
+        </p>
+
+      </div>
+
+      <div class="details-price" id="details-price">
+        2,500 AMD
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-line"></div>
+
+    <div class="footer-center">
+      Atelier Crêpe · French Crêperie
+    </div>
+
+    <div class="footer-right">
+      Made fresh, just for you
+    </div>
+
+  </footer>
+
 </div>
 
-<section class="right-panel">
-  <article class="item selected" data-id="0" tabindex="0" role="button">
-    <span class="number">01</span>
-    <div><h2>Berry<br>Choco</h2></div>
-  </article>
-  <article class="item" data-id="1" tabindex="0" role="button">
-    <span class="number">02</span>
-    <div><h2>Raspberry<br>Cloud</h2></div>
-  </article>
-  <article class="item" data-id="2" tabindex="0" role="button">
-    <span class="number">03</span>
-    <div><h2>Lotus<br>Dream</h2></div>
-  </article>
-</section>
-
-</main>
-
-<footer>
-  <span>French crêpes<br>& crafted with care</span>
-  <span>Maison Crêpe</span>
-  <span>Made fresh, just for you</span>
-</footer>
-
-</div>
 
 <script>
-(function(){
-"use strict";
-
-var wrap=document.getElementById("scene-wrap");
-
-var flavours=[
-{title:"Berry<br>Choco",ingredients:"Strawberry, Banana,<br>Nutella, Whipped Cream",note:"Freshly made · Thoughtfully crafted"},
-{title:"Raspberry<br>Cloud",ingredients:"White Cream,<br>Fresh Raspberries",note:"Light, delicate · Made with care"},
-{title:"Lotus<br>Dream",ingredients:"Lotus Cream,<br>Banana, Lotus Biscuit",note:"A golden favourite · Made fresh"}
-];
-
-function fail(message){
-  var el=document.createElement("div");
-  el.className="scene-error";
-  el.textContent=message;
-  wrap.appendChild(el);
-}
-
-if(!window.THREE){
-  fail("The 3D scene could not be loaded. Please check your internet connection and refresh the page.");
-  return;
-}
-
-try{
-
-var THREE=window.THREE;
-var scene=new THREE.Scene();
-
-var camera=new THREE.PerspectiveCamera(34,1,.1,100);
-camera.position.set(0,3.15,8.6);
-camera.lookAt(0,1.55,0);
-
-var renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
-renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-renderer.setClearColor(0x000000,0);
-renderer.outputEncoding=THREE.sRGBEncoding;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.15;
-
-wrap.insertBefore(renderer.domElement,wrap.firstChild);
-
-scene.add(new THREE.AmbientLight(0xffe8d6,1.7));
-
-var key=new THREE.DirectionalLight(0xffe0bd,2.7);
-key.position.set(-4,7,5);
-scene.add(key);
-
-var fill=new THREE.DirectionalLight(0xffbca2,1.4);
-fill.position.set(4,3,-4);
-scene.add(fill);
-
-var front=new THREE.PointLight(0xffd8b1,1.2,20);
-front.position.set(0,4,5);
-scene.add(front);
-
-var floorShadow=new THREE.Mesh(
-  new THREE.CircleGeometry(1.45,48),
-  new THREE.MeshBasicMaterial({color:0x160608,transparent:true,opacity:.28})
-);
-floorShadow.rotation.x=-Math.PI/2;
-floorShadow.position.y=-.015;
-floorShadow.scale.set(1.15,.52,1);
-scene.add(floorShadow);
-
-function mat(color,roughness){
-  return new THREE.MeshStandardMaterial({
-    color:color,
-    roughness:roughness||.72
-  });
-}
-
-var dough=mat(0xc88f58,.88);
-var doughLight=mat(0xe6b879,.85);
-var cream=mat(0xfff0df,.48);
-var chocolate=mat(0x3a160f,.35);
-var berryRed=mat(0xc93445,.4);
-var raspberryRed=mat(0xa72d43,.42);
-var banana=mat(0xf4d58b,.65);
-var lotus=mat(0xb77b43,.72);
-var biscuit=mat(0xc08a52,.86);
-
-function sphere(parent,x,y,z,sx,sy,sz,material){
-  var m=new THREE.Mesh(
-    new THREE.SphereGeometry(1,24,18),
-    material
-  );
-  m.position.set(x,y,z);
-  m.scale.set(sx,sy,sz);
-  parent.add(m);
-  return m;
-}
-
-function tube(parent,points,radius,material){
-  var curve=new THREE.CatmullRomCurve3(
-    points.map(function(p){
-      return new THREE.Vector3(p[0],p[1],p[2]);
-    })
-  );
-  var mesh=new THREE.Mesh(
-    new THREE.TubeGeometry(curve,48,radius,8,false),
-    material
-  );
-  parent.add(mesh);
-  return mesh;
-}
-
-function strawberry(parent,x,y,z,s){
-  var g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.scale.setScalar(s||1);
-
-  sphere(g,0,0,0,.19,.25,.17,berryRed);
-
-  for(var i=0;i<7;i++){
-    var a=i*2.4;
-    var yy=-.12+(i%4)*.065;
-    sphere(
-      g,
-      Math.cos(a)*.15,
-      yy,
-      Math.sin(a)*.14,
-      .018,.025,.018,
-      mat(0xffe0a6,.6)
-    );
-  }
-
-  for(var j=0;j<4;j++){
-    var leaf=new THREE.Mesh(
-      new THREE.ConeGeometry(.065,.18,7),
-      mat(0x526b3c,.8)
-    );
-    leaf.position.set(
-      Math.cos(j*Math.PI/2)*.06,
-      .23,
-      Math.sin(j*Math.PI/2)*.06
-    );
-    leaf.rotation.z=-.7;
-    g.add(leaf);
-  }
-
-  parent.add(g);
-}
-
-function raspberry(parent,x,y,z,s){
-  var g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.scale.setScalar(s||1);
-
-  for(var i=0;i<9;i++){
-    var a=i*2.399;
-    sphere(
-      g,
-      Math.cos(a)*.09,
-      (i%3)*.065,
-      Math.sin(a)*.09,
-      .082,.082,.082,
-      raspberryRed
-    );
-  }
-
-  sphere(g,0,.06,0,.09,.09,.09,raspberryRed);
-  parent.add(g);
-}
-
-function bananaSlice(parent,x,y,z,s,rot){
-  var g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.scale.setScalar(s||1);
-  g.rotation.set(-.25,rot||0,0);
-
-  var disk=new THREE.Mesh(
-    new THREE.CylinderGeometry(.16,.16,.065,32),
-    banana
-  );
-  disk.rotation.x=Math.PI/2;
-  g.add(disk);
-
-  sphere(g,0,.037,0,.09,.012,.09,mat(0xffe8b3,.7));
-  parent.add(g);
-}
-
-function creamSwirl(parent,x,y,z,s){
-  var pts=[];
-
-  for(var i=0;i<=55;i++){
-    var t=i/55;
-    var a=t*Math.PI*4.2;
-    var r=.25*(1-t);
-    pts.push([
-      Math.cos(a)*r,
-      t*.43,
-      Math.sin(a)*r
-    ]);
-  }
-
-  var g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.scale.setScalar(s||1);
-
-  sphere(g,0,.04,0,.28,.13,.25,cream);
-  tube(g,pts,.075,cream);
-  parent.add(g);
-}
-
-function biscuitPiece(parent,x,y,z,rot){
-  var g=new THREE.Group();
-  g.position.set(x,y,z);
-  g.rotation.set(.2,rot||0,.25);
-
-  var b=new THREE.Mesh(
-    new THREE.CylinderGeometry(.17,.17,.065,8),
-    biscuit
-  );
-  g.add(b);
-
-  var mark=new THREE.Mesh(
-    new THREE.CircleGeometry(.105,8),
-    mat(0x93613c,.9)
-  );
-  mark.position.y=.034;
-  g.add(mark);
-  parent.add(g);
-}
-
-function createCrepe(type){
-
-  var root=new THREE.Group();
-
-  var bodyGeo=new THREE.ConeGeometry(.91,2.55,80,24,false);
-  bodyGeo.translate(0,1.275,0);
-
-  root.add(new THREE.Mesh(bodyGeo,dough));
-
-  var top=new THREE.Mesh(
-    new THREE.CylinderGeometry(.86,.78,.12,64),
-    doughLight
-  );
-  top.position.y=2.48;
-  root.add(top);
-
-  var inner=new THREE.Mesh(
-    new THREE.CylinderGeometry(.72,.68,.035,64),
-    mat(0xf0c98f,.9)
-  );
-  inner.position.y=2.55;
-  root.add(inner);
-
-  var flap=sphere(root,0,2.48,.18,.78,.12,.62,dough);
-  flap.rotation.x=-.08;
-
-  if(type===0){
-
-    creamSwirl(root,-.08,2.57,.05,.85);
-
-    strawberry(root,-.48,2.62,.22,.95);
-    strawberry(root,.43,2.61,.12,.88);
-    strawberry(root,.06,2.66,-.36,.72);
-
-    bananaSlice(root,-.63,2.61,-.05,.9,.3);
-    bananaSlice(root,.60,2.62,-.18,.85,.7);
-    bananaSlice(root,.05,2.64,.48,.82,.2);
-
-    tube(root,[[-.72,2.64,.1],[-.42,2.77,.38],[-.12,2.68,.55],[.18,2.76,.5]],.035,chocolate);
-    tube(root,[[-.25,2.78,-.18],[.05,2.85,.05],[.38,2.72,.38],[.62,2.68,.12]],.032,chocolate);
-    tube(root,[[.55,2.72,-.18],[.34,2.82,.12],[.08,2.76,.43]],.03,chocolate);
-
-  }else if(type===1){
-
-    creamSwirl(root,0,2.58,0,1.08);
-
-    raspberry(root,-.47,2.65,.16,.95);
-    raspberry(root,.43,2.64,.16,.92);
-    raspberry(root,.04,2.72,-.37,.82);
-    raspberry(root,-.18,2.68,.47,.78);
-    raspberry(root,.56,2.66,-.22,.72);
-
-    creamSwirl(root,-.48,2.6,-.3,.48);
-
-  }else{
-
-    sphere(root,0,2.67,0,.48,.18,.42,lotus);
-
-    tube(root,[[-.22,2.83,.02],[-.1,2.88,.18],[.12,2.86,.2],[.24,2.82,.04]],.035,mat(0x8d572f,.7));
-
-    bananaSlice(root,-.52,2.62,.18,.95,.1);
-    bananaSlice(root,.5,2.62,.12,.9,.4);
-    bananaSlice(root,.05,2.65,-.4,.8,.2);
-
-    biscuitPiece(root,-.28,2.91,.1,.4);
-    biscuitPiece(root,.34,2.9,-.2,-.5);
-    biscuitPiece(root,.05,2.95,.4,.2);
-  }
-
-  for(var k=0;k<8;k++){
-    var a=k*2.35;
-    var y=.75+(k%4)*.36;
-    var r=.91*(y/2.55)+.018;
-
-    var spot=sphere(
-      root,
-      Math.cos(a)*r,
-      y,
-      Math.sin(a)*r,
-      .045,.035,.018,
-      mat(0x87502e,.9)
-    );
-
-    spot.material.transparent=true;
-    spot.material.opacity=.28;
-  }
-
-  return root;
-}
-
-var models=[
-  createCrepe(0),
-  createCrepe(1),
-  createCrepe(2)
-];
-
-models.forEach(function(m,i){
-  m.visible=i===0;
-  scene.add(m);
-});
-
-var current=0;
-var dragging=false;
-var lastX=0;
-var lastY=0;
-var targetRot=0;
-var targetTilt=0;
-var canvas=renderer.domElement;
-
-canvas.addEventListener("pointerdown",function(e){
-  dragging=true;
-  lastX=e.clientX;
-  lastY=e.clientY;
-  canvas.setPointerCapture(e.pointerId);
-});
-
-canvas.addEventListener("pointermove",function(e){
-  if(!dragging)return;
-
-  targetRot+=(e.clientX-lastX)*.009;
-  targetTilt+=(e.clientY-lastY)*.003;
-  targetTilt=Math.max(-.18,Math.min(.18,targetTilt));
-
-  lastX=e.clientX;
-  lastY=e.clientY;
-});
-
-function stop(){dragging=false;}
-
-canvas.addEventListener("pointerup",stop);
-canvas.addEventListener("pointercancel",stop);
-canvas.addEventListener("lostpointercapture",stop);
-
-function choose(index){
-
-  current=index;
-  targetRot=0;
-  targetTilt=0;
-
-  models.forEach(function(m,i){
-    m.visible=i===index;
-    m.rotation.set(0,0,0);
-  });
-
-  document.querySelectorAll(".item").forEach(function(el,i){
-    el.classList.toggle("selected",i===index);
-  });
-
-  document.getElementById("hero-title").innerHTML=flavours[index].title;
-  document.getElementById("hero-ingredients").innerHTML=flavours[index].ingredients;
-  document.getElementById("hero-note").textContent=flavours[index].note;
-  document.getElementById("counter").innerHTML="0"+(index+1)+"<span></span>03";
-}
-
-document.querySelectorAll(".item").forEach(function(el){
-  el.addEventListener("click",function(){
-    choose(Number(el.getAttribute("data-id")));
-  });
-
-  el.addEventListener("keydown",function(e){
-    if(e.key==="Enter"||e.key===" "){
-      e.preventDefault();
-      choose(Number(el.getAttribute("data-id")));
+(function () {
+
+  const crepes = [
+    {
+      name: "Berry Choco",
+      ingredients: "Nutella · Fresh strawberries · Banana",
+      price: "2,500 AMD"
+    },
+    {
+      name: "Raspberry Cloud",
+      ingredients: "White cream · Fresh raspberries",
+      price: "2,500 AMD"
+    },
+    {
+      name: "Lotus Dream",
+      ingredients: "Biscoff Lotus cream · Lotus biscuits",
+      price: "2,700 AMD"
     }
+  ];
+
+  const cards = document.querySelectorAll(".crepe-card");
+
+  const detailsLabel = document.getElementById("details-label");
+  const detailsTitle = document.getElementById("details-title");
+  const detailsIngredients = document.getElementById("details-ingredients");
+  const detailsPrice = document.getElementById("details-price");
+
+  function selectCrepe(index) {
+
+    const crepe = crepes[index];
+
+    if (!crepe) return;
+
+    cards.forEach((card, cardIndex) => {
+
+      const isSelected = cardIndex === index;
+
+      card.classList.toggle("active", isSelected);
+
+      card.setAttribute(
+        "aria-pressed",
+        isSelected ? "true" : "false"
+      );
+
+    });
+
+    detailsLabel.textContent =
+      "0" + (index + 1) + " · Selected crêpe";
+
+    detailsTitle.textContent = crepe.name;
+
+    detailsIngredients.textContent = crepe.ingredients;
+
+    detailsPrice.textContent = crepe.price;
+
+  }
+
+  cards.forEach((card) => {
+
+    card.addEventListener("click", function () {
+
+      const index = Number(this.dataset.crepe);
+
+      selectCrepe(index);
+
+      if (window.innerWidth <= 600) {
+        document.getElementById("crepe-details").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+
+    });
+
   });
-});
-
-function resize(){
-
-  var w=wrap.clientWidth;
-  var h=wrap.clientHeight;
-
-  if(!w||!h)return;
-
-  camera.aspect=w/h;
-  camera.updateProjectionMatrix();
-  renderer.setSize(w,h,false);
-
-  camera.position.z=(w<560)?9.4:8.6;
-  camera.position.y=(w<560)?3.25:3.15;
-  camera.lookAt(0,1.48,0);
-}
-
-window.addEventListener("resize",resize);
-
-if(window.ResizeObserver){
-  new ResizeObserver(resize).observe(wrap);
-}
-
-resize();
-
-var clock=new THREE.Clock();
-
-function render(){
-
-  requestAnimationFrame(render);
-
-  var t=clock.getElapsedTime();
-  var m=models[current];
-
-  if(!dragging)targetRot+=.0013;
-
-  m.rotation.y+=(targetRot-m.rotation.y)*.08;
-  m.rotation.x+=(targetTilt-m.rotation.x)*.08;
-  m.position.y=.035+Math.sin(t*1.2)*.025;
-
-  renderer.render(scene,camera);
-}
-
-render();
-
-}catch(err){
-
-  console.error("Maison Crepe 3D initialization failed:",err);
-  fail("Your browser could not start the 3D display. Please try reloading the page in Safari.");
-
-}
 
 })();
 </script>
