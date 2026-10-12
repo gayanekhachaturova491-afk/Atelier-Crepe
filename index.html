@@ -316,6 +316,7 @@ header {
   border-top: 1px solid rgba(240,229,216,.22);
   margin-top: 35px;
   padding: 55px 0 65px;
+  background: #50191f;
 }
 
 .coffee-heading {
@@ -359,43 +360,45 @@ header {
   gap: clamp(35px, 6vw, 90px);
 }
 
-/*
-  The video background is black inside the video file.
-  SCREEN blending lets pure black show the burgundy page
-  behind it instead of displaying a black rectangle.
-*/
+/* VIDEO CONTAINER: SAME BURGUNDY AS THE WEBSITE */
 
 .coffee-video-wrap {
   width: 100%;
   margin: 0;
   padding: 0;
   background: #50191f;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
+
+/*
+  Screen blending makes black pixels blend into the
+  burgundy behind the video. The slight zoom is intended
+  to hide the lighter-colored strips at the video edges.
+*/
 
 .coffee-video {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 650px;
+  max-height: none;
   object-fit: contain;
   object-position: center;
   background: #50191f;
   mix-blend-mode: screen;
+  transform: scale(1.18);
+  transform-origin: center;
 }
 
-/* COFFEE ITEMS */
+/* COFFEE MENU ON THE RIGHT */
 
 .coffee-menu {
   width: 100%;
-  max-width: none;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: 0;
   row-gap: 0;
 }
 
@@ -821,7 +824,7 @@ footer {
 
   <div class="coffee-layout">
 
-    <!-- VIDEO AND CUPS ON THE LEFT -->
+    <!-- CUPS / VIDEO ON THE LEFT -->
 
     <div class="coffee-video-wrap">
       <video
@@ -887,7 +890,6 @@ footer {
 
     </div>
   </div>
-
 </section>
 
 <footer>
