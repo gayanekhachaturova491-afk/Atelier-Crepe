@@ -1,6 +1,6 @@
 
 
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -103,14 +103,7 @@ header {
   opacity: .65;
 }
 
-.header-right {
-  justify-self: end;
-  font-family: "DM Sans", sans-serif;
-  font-size: 10px;
-  letter-spacing: .2em;
-}
-
-/* MAIN */
+/* MAIN MENU */
 
 .hero {
   flex: 1;
@@ -128,20 +121,6 @@ header {
   padding-left: 2vw;
   position: relative;
   z-index: 2;
-}
-
-.counter {
-  font-size: 16px;
-  letter-spacing: .2em;
-  line-height: 1.7;
-}
-
-.counter span {
-  display: block;
-  width: 1px;
-  height: 30px;
-  background: var(--line);
-  margin: 5px 0;
 }
 
 .flavour-title {
@@ -211,29 +190,6 @@ header {
 .price {
   font-size: 25px;
   letter-spacing: .04em;
-}
-
-.details-btn {
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  min-width: 245px;
-  margin-top: 30px;
-  padding: 18px 20px;
-  border: 1px solid var(--line);
-  color: var(--cream);
-  text-decoration: none;
-  font-family: "DM Sans", sans-serif;
-  font-size: 9px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  transition: .3s;
-}
-
-.details-btn:hover {
-  background: var(--cream);
-  color: var(--bg);
 }
 
 /* MAIN PRODUCT PHOTO */
@@ -378,6 +334,174 @@ footer {
   background: var(--line);
 }
 
+/* WELCOME BANNER */
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #50191f;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .65s ease, visibility .65s ease;
+}
+
+.welcome-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-card {
+  position: relative;
+  width: min(1120px, 100%);
+  min-height: min(690px, calc(100vh - 48px));
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid rgba(240,229,216,.25);
+
+  /* Burgundy background */
+  background-color: #50191f;
+
+  /* New transparent girl image */
+  background-image: url("https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_f91e3690-8cc9-42c3-a30e-6f581bf373ac.png?v=1791833792");
+
+  /* Keep the entire girl visible */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  cursor: pointer;
+  color: var(--cream);
+  text-align: center;
+}
+
+.welcome-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(240,229,216,.4);
+  pointer-events: none;
+}
+
+.welcome-copy {
+  position: relative;
+  z-index: 1;
+  padding: 45px 25px 65px;
+  pointer-events: none;
+}
+
+.welcome-kicker,
+.welcome-hint {
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #fff0e7;
+}
+
+.welcome-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(58px, 10vw, 112px);
+  font-weight: 400;
+  line-height: 1;
+  margin: 18px 0;
+  text-shadow: 0 3px 25px rgba(0,0,0,.25);
+}
+
+.welcome-hint {
+  margin-top: 24px;
+  font-size: 10px;
+  transition: letter-spacing .3s;
+}
+
+.welcome-card:hover .welcome-hint {
+  letter-spacing: .4em;
+}
+
+/* ABOUT AND LOCATION POPUP */
+
+.info-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(20,5,8,.72);
+}
+
+.info-overlay.open {
+  display: flex;
+}
+
+.info-card {
+  width: min(560px, 100%);
+  position: relative;
+  padding: clamp(32px, 6vw, 58px);
+  background: var(--cream);
+  color: var(--bg-dark);
+  box-shadow: 0 25px 80px rgba(0,0,0,.3);
+}
+
+.info-card .info-eyebrow {
+  font-family: "DM Sans", sans-serif;
+  color: #986b65;
+  font-size: 9px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.info-card h2 {
+  font-family: "Italiana", Georgia, serif;
+  font-size: clamp(38px, 7vw, 56px);
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.info-card p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #71534c;
+  margin: 0 0 14px;
+}
+
+.info-card .info-address {
+  font-size: 17px;
+  color: var(--bg-dark);
+  line-height: 1.7;
+}
+
+.info-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: 0;
+  background: transparent;
+  color: var(--bg-dark);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.info-map-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--bg-dark);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-underline-offset: 5px;
+}
+
 /* TABLET */
 
 @media(max-width: 1050px) {
@@ -423,7 +547,7 @@ footer {
   }
 
   header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     min-height: 75px;
   }
 
@@ -436,9 +560,14 @@ footer {
     margin-left: 15px;
   }
 
-  .nav,
-  .header-right {
-    display: none;
+  .nav {
+    display: flex;
+    gap: 22px;
+    margin-top: 18px;
+  }
+
+  .nav a {
+    font-size: 9px;
   }
 
   .hero {
@@ -459,10 +588,6 @@ footer {
   .left-panel {
     order: 2;
     padding: 8px 4px 0;
-  }
-
-  .counter {
-    display: none;
   }
 
   .flavour-title {
@@ -517,11 +642,50 @@ footer {
   .footer-line {
     width: 100%;
   }
+
+  .welcome-screen {
+    padding: 12px;
+  }
+
+  .welcome-card {
+    min-height: calc(100vh - 24px);
+    background-size: contain;
+  }
+
+  .welcome-copy {
+    padding-bottom: 52px;
+  }
+
+  .info-card {
+    padding: 42px 28px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- WELCOME SCREEN -->
+<section class="welcome-screen" id="welcome-screen" aria-label="Enter Atelier Crêpe menu">
+  <button class="welcome-card" type="button" onclick="enterMenu()" aria-label="Open the menu">
+    <div class="welcome-copy">
+      <p class="welcome-kicker">A little taste of Paris in Yerevan</p>
+      <h1 class="welcome-title">Atelier Crêpe</h1>
+      <p class="welcome-hint">Tap anywhere to explore the menu &nbsp; ↗</p>
+    </div>
+  </button>
+</section>
+
+<!-- ABOUT AND LOCATION POPUP -->
+<div class="info-overlay" id="info-overlay" onclick="closeInfo(event)">
+  <section class="info-card" role="dialog" aria-modal="true" aria-labelledby="info-title">
+    <button class="info-close" type="button" onclick="hideInfo()" aria-label="Close">×</button>
+    <p class="info-eyebrow" id="info-eyebrow">Our story</p>
+    <h2 id="info-title">A little French feeling</h2>
+    <div id="info-content"></div>
+  </section>
+</div>
+
 <div class="page">
 
 <header>
@@ -532,24 +696,15 @@ footer {
 
   <nav class="nav">
     <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#location">Location</a>
+    <a href="#about" onclick="openInfo(event, 'about')">About</a>
+    <a href="#location" onclick="openInfo(event, 'location')">Location</a>
   </nav>
-
-  <div class="header-right">EN &nbsp; | &nbsp; FR</div>
 </header>
 
 <main class="hero" id="menu">
 
   <section class="left-panel" id="details">
-
-    <div class="counter" id="counter">
-      01<span></span>04
-    </div>
-
-    <h1 class="flavour-title" id="crepe-name">
-      Berry<br>Choco
-    </h1>
+    <h1 class="flavour-title" id="crepe-name">Berry<br>Choco</h1>
 
     <p class="subtitle" id="crepe-subtitle">
       A little indulgence, made fresh.
@@ -571,12 +726,6 @@ footer {
       <span class="price-label">Price</span>
       <span class="price" id="crepe-price">2,500 AMD</span>
     </div>
-
-    <a href="#details" class="details-btn">
-      <span>Discover this crêpe</span>
-      <span>⟶</span>
-    </a>
-
   </section>
 
   <div class="photo-stage">
@@ -593,10 +742,7 @@ footer {
 
     <button class="crepe-choice active" type="button" data-index="0" aria-pressed="true">
       <span class="choice-image">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
-          alt="Berry Choco"
-        >
+        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995" alt="Berry Choco">
       </span>
       <span class="choice-info">
         <span class="choice-line"></span>
@@ -606,10 +752,7 @@ footer {
 
     <button class="crepe-choice" type="button" data-index="1" aria-pressed="false">
       <span class="choice-image">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854"
-          alt="Raspberry Cloud"
-        >
+        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854" alt="Raspberry Cloud">
       </span>
       <span class="choice-info">
         <span class="choice-line"></span>
@@ -619,10 +762,7 @@ footer {
 
     <button class="crepe-choice" type="button" data-index="2" aria-pressed="false">
       <span class="choice-image">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899"
-          alt="Lotus Dream"
-        >
+        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899" alt="Lotus Dream">
       </span>
       <span class="choice-info">
         <span class="choice-line"></span>
@@ -632,10 +772,7 @@ footer {
 
     <button class="crepe-choice" type="button" data-index="3" aria-pressed="false">
       <span class="choice-image">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031"
-          alt="Nutella Cinnabon"
-        >
+        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031" alt="Nutella Cinnabon">
       </span>
       <span class="choice-info">
         <span class="choice-line"></span>
@@ -644,13 +781,12 @@ footer {
     </button>
 
   </section>
-
 </main>
 
-<footer id="about">
+<footer>
   <span>French crêpes<br>& crafted with care</span>
   <span class="footer-line"></span>
-  <span id="location">Atelier Crêpe · Made fresh for you</span>
+  <span>Atelier Crêpe · Yerevan, Armenia</span>
 </footer>
 
 </div>
@@ -701,7 +837,6 @@ const subtitleElement = document.getElementById("crepe-subtitle");
 const descriptionElement = document.getElementById("crepe-description");
 const ingredientsElement = document.getElementById("crepe-ingredients");
 const priceElement = document.getElementById("crepe-price");
-const counterElement = document.getElementById("counter");
 const choices = document.querySelectorAll(".crepe-choice");
 
 function selectCrepe(index) {
@@ -728,10 +863,6 @@ function selectCrepe(index) {
     ingredientsElement.textContent = selected.ingredients;
     priceElement.textContent = selected.price;
 
-    counterElement.innerHTML =
-      String(index + 1).padStart(2, "0") +
-      "<span></span>04";
-
     requestAnimationFrame(() => {
       mainPhoto.classList.remove("fade");
     });
@@ -750,7 +881,70 @@ choices.forEach((button) => {
     selectCrepe(Number(this.dataset.index));
   });
 });
+
+/* WELCOME SCREEN */
+
+function enterMenu() {
+  const welcome = document.getElementById("welcome-screen");
+  welcome.classList.add("is-hidden");
+  window.setTimeout(() => welcome.remove(), 700);
+}
+
+/* ABOUT AND LOCATION */
+
+const infoContent = {
+  about: {
+    eyebrow: "Our story",
+    title: "A little French feeling",
+    html: `
+      <p>Atelier Crêpe began with a simple idea: bring the warmth of a small French crêperie to the heart of Yerevan.</p>
+      <p>We imagine a place where crêpes are made to order, fruit is fresh, chocolate is generous, and every visit feels like a little pause in a busy day.</p>
+      <p>Whether you love strawberries, bananas, or a little extra peanut butter, there is a sweet moment waiting for you at our table.</p>
+    `
+  },
+
+  location: {
+    eyebrow: "Come say bonjour",
+    title: "Find us in Yerevan",
+    html: `
+      <p class="info-address">12 Abovyan Street<br>Yerevan, Armenia</p>
+      <p>In the city centre, a short walk from Republic Square. Stop by for a freshly made crêpe and something delicious to drink.</p>
+      <a class="info-map-link" href="https://www.google.com/maps/search/?api=1&query=12+Abovyan+Street+Yerevan+Armenia" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      <p style="font-size:11px;margin-top:18px">Demo café address for this project.</p>
+    `
+  }
+};
+
+function openInfo(event, type) {
+  event.preventDefault();
+
+  const info = infoContent[type];
+
+  if (!info) return;
+
+  document.getElementById("info-eyebrow").textContent = info.eyebrow;
+  document.getElementById("info-title").textContent = info.title;
+  document.getElementById("info-content").innerHTML = info.html;
+  document.getElementById("info-overlay").classList.add("open");
+}
+
+function hideInfo() {
+  document.getElementById("info-overlay").classList.remove("open");
+}
+
+function closeInfo(event) {
+  if (event.target.id === "info-overlay") {
+    hideInfo();
+  }
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    hideInfo();
+  }
+});
 </script>
 
 </body>
+</html>
 </html>
