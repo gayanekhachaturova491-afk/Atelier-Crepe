@@ -1,11 +1,11 @@
 
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#50191f">
+<meta name="theme-color" content="#581c24">
 <title>Atelier Crêpe — French Crêperie</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 
 <style>
 :root {
-  --bg: #50191f;
+  --bg: #581c24;
   --bg-dark: #351015;
   --cream: #f0e5d8;
   --muted: #c7aaa0;
@@ -33,7 +33,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--cream);
-  background: radial-gradient(ellipse at 52% 42%, #68242a, #50191f 48%, #351015);
+  background: radial-gradient(ellipse at 52% 42%, #702a32, #581c24 48%, #351015);
   font-family: "Italiana", Georgia, serif;
 }
 
@@ -45,20 +45,18 @@ button {
   max-width: 1900px;
   min-height: 100vh;
   margin: auto;
-  padding: 30px 4.7vw 24px;
-  display: flex;
-  flex-direction: column;
+  padding: 25px 3.5vw 24px;
 }
 
 /* HEADER */
 
 header {
-  min-height: 105px;
+  min-height: 100px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   border-bottom: 1px solid rgba(240,229,216,.16);
-  padding-bottom: 18px;
+  padding-bottom: 15px;
 }
 
 .brand {
@@ -103,61 +101,121 @@ header {
   opacity: .65;
 }
 
-/* MAIN MENU */
+/* MAIN LAYOUT */
 
-.hero {
-  flex: 1;
+.main-layout {
   display: grid;
-  grid-template-columns: minmax(250px, .82fr) minmax(350px, 1.45fr) minmax(175px, .65fr);
-  align-items: center;
-  gap: 2vw;
-  min-height: 680px;
-  padding: 25px 0;
+  grid-template-columns: minmax(190px, .75fr) minmax(350px, 1.45fr) minmax(230px, .85fr);
+  gap: 2.2vw;
+  align-items: start;
+  padding: 35px 0;
 }
 
-/* LEFT INFORMATION */
+/* LEFT VIDEO */
 
-.left-panel {
-  padding-left: 2vw;
-  position: relative;
-  z-index: 2;
+.video-column {
+  position: sticky;
+  top: 25px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-heading {
+  width: 100%;
+  color: var(--muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+}
+
+.video-frame {
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.brand-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+
+  /* Blends the black video background into the burgundy */
+  mix-blend-mode: screen;
+}
+
+.video-caption {
+  width: 100%;
+  color: var(--muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 8px;
+  letter-spacing: .2em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+/* CENTRE: CREPE DETAILS AND PHOTO */
+
+.crepe-column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crepe-details {
+  width: 100%;
+  text-align: center;
+  padding: 0 10px 20px;
 }
 
 .flavour-title {
   font-family: "Italiana", Georgia, serif;
-  font-size: clamp(48px, 5vw, 76px);
+  font-size: clamp(44px, 5vw, 72px);
   font-weight: 400;
-  line-height: .94;
+  line-height: .98;
   letter-spacing: .045em;
   text-transform: uppercase;
-  margin: 34px 0 16px;
+  margin: 0 0 12px;
 }
 
 .subtitle {
   color: var(--muted);
   font-size: 14px;
   letter-spacing: .1em;
-  margin: 0 0 22px;
+  margin: 0 0 17px;
 }
 
 .rule {
   width: 63px;
   height: 1px;
   background: var(--line);
-  margin-bottom: 20px;
+  margin: 0 auto 17px;
 }
 
 .description {
-  max-width: 310px;
+  max-width: 450px;
+  margin: 0 auto;
   color: #ead9cf;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.7;
   letter-spacing: .025em;
-  margin: 0;
 }
 
 .ingredients-label {
-  margin: 23px 0 8px;
+  margin: 18px 0 7px;
   color: var(--muted);
   font-family: "DM Sans", sans-serif;
   font-size: 9px;
@@ -166,17 +224,17 @@ header {
 }
 
 .ingredients {
-  max-width: 300px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.8;
   letter-spacing: .03em;
 }
 
 .price-row {
   display: flex;
+  justify-content: center;
   align-items: baseline;
   gap: 15px;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 .price-label {
@@ -188,17 +246,15 @@ header {
 }
 
 .price {
-  font-size: 25px;
+  font-size: 23px;
   letter-spacing: .04em;
 }
-
-/* MAIN PRODUCT PHOTO */
 
 .photo-stage {
   position: relative;
   width: 100%;
-  height: min(68vh, 690px);
-  min-height: 460px;
+  height: min(58vh, 570px);
+  min-height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,21 +289,39 @@ header {
   pointer-events: none;
 }
 
-/* RIGHT MENU */
+/* RIGHT: CREPE AND COFFEE MENUS */
 
-.right-panel {
+.right-column {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 35px;
+}
+
+.menu-section-title {
+  color: var(--muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.crepe-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
 }
 
 .crepe-choice {
   width: 100%;
   display: grid;
-  grid-template-columns: 78px 1fr;
+  grid-template-columns: 70px 1fr;
   align-items: center;
-  gap: 13px;
-  padding: 8px 0;
+  gap: 12px;
+  padding: 5px 0;
   background: none;
   border: 0;
   color: var(--cream);
@@ -267,8 +341,8 @@ header {
 }
 
 .choice-image {
-  width: 78px;
-  height: 105px;
+  width: 70px;
+  height: 85px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -291,7 +365,7 @@ header {
 .choice-info {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 9px;
 }
 
 .choice-line {
@@ -307,10 +381,58 @@ header {
 }
 
 .choice-name {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
-  letter-spacing: .15em;
+  letter-spacing: .13em;
   text-transform: uppercase;
+}
+
+/* COFFEE MENU */
+
+.coffee-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.coffee-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: start;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(240,229,216,.14);
+}
+
+.coffee-name {
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: .06em;
+  margin: 0 0 6px;
+}
+
+.coffee-description {
+  color: #d9c2b8;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.coffee-price {
+  white-space: nowrap;
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: .04em;
+  padding-top: 2px;
+}
+
+.coffee-size {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 4px;
 }
 
 /* FOOTER */
@@ -326,102 +448,13 @@ footer {
   line-height: 1.9;
   letter-spacing: .25em;
   text-transform: uppercase;
-  padding-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(240,229,216,.16);
 }
 
 .footer-line {
   height: 1px;
   background: var(--line);
-}
-
-/* WELCOME BANNER */
-
-.welcome-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: #50191f;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .65s ease, visibility .65s ease;
-}
-
-.welcome-screen.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.welcome-card {
-  position: relative;
-  width: min(1120px, 100%);
-  min-height: min(690px, calc(100vh - 48px));
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  border: 1px solid rgba(240,229,216,.25);
-
-  /* Burgundy background */
-  background-color: #50191f;
-
-  /* New transparent girl image */
-  background-image: url("https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_f91e3690-8cc9-42c3-a30e-6f581bf373ac.png?v=1791833792");
-
-  /* Keep the entire girl visible */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  cursor: pointer;
-  color: var(--cream);
-  text-align: center;
-}
-
-.welcome-card::after {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(240,229,216,.4);
-  pointer-events: none;
-}
-
-.welcome-copy {
-  position: relative;
-  z-index: 1;
-  padding: 45px 25px 65px;
-  pointer-events: none;
-}
-
-.welcome-kicker,
-.welcome-hint {
-  font-family: "DM Sans", sans-serif;
-  font-size: 9px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: #fff0e7;
-}
-
-.welcome-title {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(58px, 10vw, 112px);
-  font-weight: 400;
-  line-height: 1;
-  margin: 18px 0;
-  text-shadow: 0 3px 25px rgba(0,0,0,.25);
-}
-
-.welcome-hint {
-  margin-top: 24px;
-  font-size: 10px;
-  transition: letter-spacing .3s;
-}
-
-.welcome-card:hover .welcome-hint {
-  letter-spacing: .4em;
 }
 
 /* ABOUT AND LOCATION POPUP */
@@ -505,37 +538,35 @@ footer {
 /* TABLET */
 
 @media(max-width: 1050px) {
-  .hero {
-    grid-template-columns: minmax(220px,.8fr) minmax(300px,1.2fr);
-    gap: 20px;
+  .main-layout {
+    grid-template-columns: minmax(160px,.65fr) minmax(280px,1.2fr);
+    gap: 25px;
   }
 
-  .left-panel {
-    grid-column: 1;
-    grid-row: 1;
+  .video-column {
+    position: relative;
+    top: auto;
   }
 
-  .photo-stage {
+  .video-frame {
+    min-height: 300px;
+  }
+
+  .crepe-column {
     grid-column: 2;
-    grid-row: 1;
   }
 
-  .right-panel {
+  .right-column {
     grid-column: 1 / -1;
-    grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
-    gap: 12px;
-    padding-top: 20px;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 35px;
   }
 
-  .crepe-choice {
-    grid-template-columns: 65px 1fr;
-  }
-
-  .choice-image {
-    width: 65px;
-    height: 85px;
+  .crepe-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
   }
 }
 
@@ -561,74 +592,108 @@ footer {
   }
 
   .nav {
-    display: flex;
-    gap: 22px;
-    margin-top: 18px;
+    gap: 25px;
+    margin-top: 17px;
   }
 
   .nav a {
     font-size: 9px;
   }
 
-  .hero {
+  .main-layout {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    min-height: auto;
-    gap: 0;
-    padding-top: 12px;
+    gap: 35px;
+    padding-top: 25px;
   }
 
-  .photo-stage {
+  .video-column {
+    position: relative;
+    top: auto;
+    width: 100%;
     order: 1;
-    height: 370px;
-    min-height: 0;
   }
 
-  .left-panel {
+  .video-frame {
+    width: 100%;
+    min-height: 0;
+    max-height: 480px;
+  }
+
+  .brand-video {
+    width: 100%;
+    max-height: 480px;
+  }
+
+  .crepe-column {
+    width: 100%;
     order: 2;
-    padding: 8px 4px 0;
+  }
+
+  .crepe-details {
+    padding: 0 4px 12px;
   }
 
   .flavour-title {
     font-size: 48px;
-    margin: 5px 0 12px;
   }
 
   .description {
-    max-width: 100%;
-    font-size: 15px;
+    font-size: 14px;
   }
 
-  .right-panel {
+  .photo-stage {
+    height: 340px;
+    min-height: 0;
+  }
+
+  .right-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     order: 3;
+    gap: 35px;
+  }
+
+  .crepe-menu {
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 12px;
-    margin-top: 30px;
   }
 
   .crepe-choice {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 8px;
     border-top: 1px solid var(--line);
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
   .choice-image {
-    width: 62px;
-    height: 80px;
+    width: 58px;
+    height: 75px;
     flex-shrink: 0;
   }
 
   .choice-name {
     font-size: 10px;
-    letter-spacing: .09em;
+    letter-spacing: .08em;
   }
 
   .choice-info {
     gap: 7px;
+  }
+
+  .coffee-item {
+    padding: 15px 0;
+  }
+
+  .coffee-name {
+    font-size: 17px;
+  }
+
+  .coffee-description {
+    font-size: 11px;
   }
 
   footer {
@@ -636,55 +701,17 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 12px;
-    margin-top: 30px;
+    margin-top: 25px;
   }
 
   .footer-line {
     width: 100%;
-  }
-
-  .welcome-screen {
-    padding: 12px;
-  }
-
-  .welcome-card {
-    min-height: calc(100vh - 24px);
-    background-size: contain;
-  }
-
-  .welcome-copy {
-    padding-bottom: 52px;
-  }
-
-  .info-card {
-    padding: 42px 28px;
   }
 }
 </style>
 </head>
 
 <body>
-
-<!-- WELCOME SCREEN -->
-<section class="welcome-screen" id="welcome-screen" aria-label="Enter Atelier Crêpe menu">
-  <button class="welcome-card" type="button" onclick="enterMenu()" aria-label="Open the menu">
-    <div class="welcome-copy">
-      <p class="welcome-kicker">A little taste of Paris in Yerevan</p>
-      <h1 class="welcome-title">Atelier Crêpe</h1>
-      <p class="welcome-hint">Tap anywhere to explore the menu &nbsp; ↗</p>
-    </div>
-  </button>
-</section>
-
-<!-- ABOUT AND LOCATION POPUP -->
-<div class="info-overlay" id="info-overlay" onclick="closeInfo(event)">
-  <section class="info-card" role="dialog" aria-modal="true" aria-labelledby="info-title">
-    <button class="info-close" type="button" onclick="hideInfo()" aria-label="Close">×</button>
-    <p class="info-eyebrow" id="info-eyebrow">Our story</p>
-    <h2 id="info-title">A little French feeling</h2>
-    <div id="info-content"></div>
-  </section>
-</div>
 
 <div class="page">
 
@@ -701,86 +728,193 @@ footer {
   </nav>
 </header>
 
-<main class="hero" id="menu">
+<main class="main-layout" id="menu">
 
-  <section class="left-panel" id="details">
-    <h1 class="flavour-title" id="crepe-name">Berry<br>Choco</h1>
+  <!-- LEFT: ATELIER CREPE VIDEO -->
 
-    <p class="subtitle" id="crepe-subtitle">
-      A little indulgence, made fresh.
-    </p>
+  <section class="video-column">
+    <p class="video-heading">A little look inside Atelier</p>
 
-    <div class="rule"></div>
-
-    <p class="description" id="crepe-description">
-      A delicate golden crêpe filled with silky Nutella, sweet strawberries and fresh banana. A timeless combination of rich chocolate and fresh fruit.
-    </p>
-
-    <p class="ingredients-label">Ingredients</p>
-
-    <div class="ingredients" id="crepe-ingredients">
-      Nutella · Fresh strawberries · Banana
+    <div class="video-frame">
+      <video
+        class="brand-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-label="Atelier Crêpe branded cups video"
+      >
+        <source
+          src="https://cdn.shopify.com/videos/c/o/v/fd00f488e2514ac290702a523afb3846.mov"
+          type="video/quicktime"
+        >
+        Your browser does not support this video.
+      </video>
     </div>
 
-    <div class="price-row">
-      <span class="price-label">Price</span>
-      <span class="price" id="crepe-price">2,500 AMD</span>
+    <p class="video-caption">
+      Made with love · Atelier Crêpe
+    </p>
+  </section>
+
+  <!-- CENTRE: CREPE DETAILS AND PHOTO -->
+
+  <section class="crepe-column">
+
+    <div class="crepe-details">
+      <h1 class="flavour-title" id="crepe-name">Berry<br>Choco</h1>
+
+      <p class="subtitle" id="crepe-subtitle">
+        A little indulgence, made fresh.
+      </p>
+
+      <div class="rule"></div>
+
+      <p class="description" id="crepe-description">
+        A delicate golden crêpe filled with silky Nutella, sweet strawberries and fresh banana. A timeless combination of rich chocolate and fresh fruit.
+      </p>
+
+      <p class="ingredients-label">Ingredients</p>
+
+      <div class="ingredients" id="crepe-ingredients">
+        Nutella · Fresh strawberries · Banana
+      </div>
+
+      <div class="price-row">
+        <span class="price-label">Price</span>
+        <span class="price" id="crepe-price">2,500 AMD</span>
+      </div>
     </div>
-  </section>
 
-  <div class="photo-stage">
-    <img
-      class="main-photo"
-      id="main-photo"
-      src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
-      alt="Berry Choco — Nutella, strawberry and banana"
-    >
-    <p class="photo-caption">Freshly made · Thoughtfully crafted</p>
-  </div>
-
-  <section class="right-panel" aria-label="Our crêpes">
-
-    <button class="crepe-choice active" type="button" data-index="0" aria-pressed="true">
-      <span class="choice-image">
-        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995" alt="Berry Choco">
-      </span>
-      <span class="choice-info">
-        <span class="choice-line"></span>
-        <span class="choice-name">Berry<br>Choco</span>
-      </span>
-    </button>
-
-    <button class="crepe-choice" type="button" data-index="1" aria-pressed="false">
-      <span class="choice-image">
-        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854" alt="Raspberry Cloud">
-      </span>
-      <span class="choice-info">
-        <span class="choice-line"></span>
-        <span class="choice-name">Raspberry<br>Cloud</span>
-      </span>
-    </button>
-
-    <button class="crepe-choice" type="button" data-index="2" aria-pressed="false">
-      <span class="choice-image">
-        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899" alt="Lotus Dream">
-      </span>
-      <span class="choice-info">
-        <span class="choice-line"></span>
-        <span class="choice-name">Lotus<br>Dream</span>
-      </span>
-    </button>
-
-    <button class="crepe-choice" type="button" data-index="3" aria-pressed="false">
-      <span class="choice-image">
-        <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031" alt="Nutella Cinnabon">
-      </span>
-      <span class="choice-info">
-        <span class="choice-line"></span>
-        <span class="choice-name">Nutella<br>Cinnabon</span>
-      </span>
-    </button>
+    <div class="photo-stage">
+      <img
+        class="main-photo"
+        id="main-photo"
+        src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
+        alt="Berry Choco — Nutella, strawberry and banana"
+      >
+      <p class="photo-caption">Freshly made · Thoughtfully crafted</p>
+    </div>
 
   </section>
+
+  <!-- RIGHT: CREPE MENU AND COFFEE MENU -->
+
+  <aside class="right-column">
+
+    <section>
+      <h2 class="menu-section-title">Our Crêpes</h2>
+
+      <div class="crepe-menu">
+
+        <button class="crepe-choice active" type="button" data-index="0" aria-pressed="true">
+          <span class="choice-image">
+            <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995" alt="Berry Choco">
+          </span>
+          <span class="choice-info">
+            <span class="choice-line"></span>
+            <span class="choice-name">Berry<br>Choco</span>
+          </span>
+        </button>
+
+        <button class="crepe-choice" type="button" data-index="1" aria-pressed="false">
+          <span class="choice-image">
+            <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854" alt="Raspberry Cloud">
+          </span>
+          <span class="choice-info">
+            <span class="choice-line"></span>
+            <span class="choice-name">Raspberry<br>Cloud</span>
+          </span>
+        </button>
+
+        <button class="crepe-choice" type="button" data-index="2" aria-pressed="false">
+          <span class="choice-image">
+            <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899" alt="Lotus Dream">
+          </span>
+          <span class="choice-info">
+            <span class="choice-line"></span>
+            <span class="choice-name">Lotus<br>Dream</span>
+          </span>
+        </button>
+
+        <button class="crepe-choice" type="button" data-index="3" aria-pressed="false">
+          <span class="choice-image">
+            <img src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031" alt="Nutella Cinnabon">
+          </span>
+          <span class="choice-info">
+            <span class="choice-line"></span>
+            <span class="choice-name">Nutella<br>Cinnabon</span>
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- COFFEE MENU -->
+
+    <section>
+      <h2 class="menu-section-title">Coffee Selection</h2>
+
+      <div class="coffee-menu">
+
+        <article class="coffee-item">
+          <div>
+            <h3 class="coffee-name">Americano</h3>
+            <p class="coffee-description">
+              Smooth espresso topped with hot water. Rich coffee flavour with a clean, delicate finish.
+            </p>
+          </div>
+          <div class="coffee-price">
+            1,800 AMD
+            <span class="coffee-size">250 ml</span>
+          </div>
+        </article>
+
+        <article class="coffee-item">
+          <div>
+            <h3 class="coffee-name">Cappuccino</h3>
+            <p class="coffee-description">
+              A perfect balance of espresso, steamed milk and silky foam, finished with a delicate layer of coffee aroma.
+            </p>
+          </div>
+          <div class="coffee-price">
+            2,200 AMD
+            <span class="coffee-size">250 ml</span>
+          </div>
+        </article>
+
+        <article class="coffee-item">
+          <div>
+            <h3 class="coffee-name">Latte</h3>
+            <p class="coffee-description">
+              A smooth espresso blended with creamy steamed milk and a light layer of foam. Soft, mellow and comforting.
+            </p>
+          </div>
+          <div class="coffee-price">
+            2,200 AMD
+            <span class="coffee-size">250 ml</span>
+          </div>
+        </article>
+
+        <article class="coffee-item">
+          <div>
+            <h3 class="coffee-name">Affogato</h3>
+            <p class="coffee-description">
+              A scoop of velvety vanilla ice cream drowned in a shot of hot espresso. The perfect little coffee dessert.
+            </p>
+          </div>
+          <div class="coffee-price">
+            2,800 AMD
+            <span class="coffee-size">Ice cream + espresso</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </aside>
+
 </main>
 
 <footer>
@@ -789,6 +923,17 @@ footer {
   <span>Atelier Crêpe · Yerevan, Armenia</span>
 </footer>
 
+</div>
+
+<!-- ABOUT AND LOCATION POPUP -->
+
+<div class="info-overlay" id="info-overlay" onclick="closeInfo(event)">
+  <section class="info-card" role="dialog" aria-modal="true" aria-labelledby="info-title">
+    <button class="info-close" type="button" onclick="hideInfo()" aria-label="Close">×</button>
+    <p class="info-eyebrow" id="info-eyebrow">Our story</p>
+    <h2 id="info-title">A little French feeling</h2>
+    <div id="info-content"></div>
+  </section>
 </div>
 
 <script>
@@ -882,14 +1027,6 @@ choices.forEach((button) => {
   });
 });
 
-/* WELCOME SCREEN */
-
-function enterMenu() {
-  const welcome = document.getElementById("welcome-screen");
-  welcome.classList.add("is-hidden");
-  window.setTimeout(() => welcome.remove(), 700);
-}
-
 /* ABOUT AND LOCATION */
 
 const infoContent = {
@@ -919,7 +1056,6 @@ function openInfo(event, type) {
   event.preventDefault();
 
   const info = infoContent[type];
-
   if (!info) return;
 
   document.getElementById("info-eyebrow").textContent = info.eyebrow;
@@ -946,5 +1082,4 @@ document.addEventListener("keydown", event => {
 </script>
 
 </body>
-</html>
 </html>
