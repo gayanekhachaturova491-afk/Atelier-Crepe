@@ -360,7 +360,7 @@ header {
   gap: clamp(35px, 6vw, 90px);
 }
 
-/* VIDEO CONTAINER: SAME BURGUNDY AS THE WEBSITE */
+/* VIDEO CONTAINER */
 
 .coffee-video-wrap {
   width: 100%;
@@ -372,12 +372,6 @@ header {
   align-items: center;
   justify-content: center;
 }
-
-/*
-  Screen blending makes black pixels blend into the
-  burgundy behind the video. The slight zoom is intended
-  to hide the lighter-colored strips at the video edges.
-*/
 
 .coffee-video {
   display: block;
@@ -392,7 +386,7 @@ header {
   transform-origin: center;
 }
 
-/* COFFEE MENU ON THE RIGHT */
+/* COFFEE MENU — NO DIVIDER LINES */
 
 .coffee-menu {
   width: 100%;
@@ -408,7 +402,7 @@ header {
   gap: 15px;
   align-items: start;
   padding: 23px 0;
-  border-bottom: 1px solid rgba(240,229,216,.2);
+  border: none;
 }
 
 .coffee-name {
@@ -812,7 +806,7 @@ footer {
 
 </main>
 
-<!-- COFFEE SECTION BELOW CREPES -->
+<!-- COFFEE SECTION -->
 
 <section class="coffee-section" id="coffee">
 
@@ -883,6 +877,26 @@ footer {
           <h3 class="coffee-name">Affogato</h3>
           <p class="coffee-description">
             A scoop of velvety vanilla ice cream topped with a shot of hot espresso. A little coffee dessert.
+          </p>
+        </div>
+        <div class="coffee-price">2,800 AMD</div>
+      </article>
+
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Latte Macchiato Raspberry Lemon</h3>
+          <p class="coffee-description">
+            A delicate latte macchiato with bright raspberry sweetness and a refreshing touch of lemon.
+          </p>
+        </div>
+        <div class="coffee-price">2,500 AMD</div>
+      </article>
+
+      <article class="coffee-item">
+        <div>
+          <h3 class="coffee-name">Mocha White Chocolate</h3>
+          <p class="coffee-description">
+            Rich espresso blended with creamy white chocolate and silky steamed milk. Smooth, sweet and indulgent.
           </p>
         </div>
         <div class="coffee-price">2,800 AMD</div>
