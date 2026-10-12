@@ -363,6 +363,7 @@ header {
 .coffee-video-wrap {
   width: 100%;
   margin: 0;
+  padding: 0;
   background: #50191f;
   display: flex;
   align-items: center;
@@ -378,9 +379,7 @@ header {
   object-fit: contain;
   object-position: center;
   background: #50191f;
-
-  /* Helps blend the video's black areas into the burgundy page */
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 
 /* COFFEE MENU ITEMS */
@@ -669,7 +668,7 @@ footer {
   }
 
   .coffee-video-wrap {
-    width: 100%;
+    margin-bottom: 0;
   }
 
   .coffee-menu {
