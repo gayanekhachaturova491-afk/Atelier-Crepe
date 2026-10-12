@@ -1,12 +1,10 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#50191f">
-
 <title>Atelier Crêpe — French Crêperie</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +14,7 @@
 <style>
 :root {
   --bg: #50191f;
+  --bg-dark: #351015;
   --cream: #f0e5d8;
   --muted: #c7aaa0;
   --line: rgba(240,229,216,.25);
@@ -27,7 +26,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 20px;
 }
 
 body {
@@ -36,7 +34,6 @@ body {
   color: var(--cream);
   background: #50191f;
   font-family: "Italiana", Georgia, serif;
-  overflow-x: hidden;
 }
 
 button {
@@ -48,6 +45,8 @@ button {
   min-height: 100vh;
   margin: auto;
   padding: 30px 4.7vw 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER */
@@ -103,19 +102,16 @@ header {
   opacity: .65;
 }
 
-/* CREPE SECTION */
+/* ORIGINAL CREPE MENU */
 
 .hero {
-  position: relative;
-  z-index: 1;
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(250px, .82fr) minmax(350px, 1.45fr) minmax(175px, .65fr);
   align-items: center;
   gap: 2vw;
   min-height: 680px;
   padding: 25px 0;
-  transform-origin: center center;
-  will-change: transform, opacity;
 }
 
 .left-panel {
@@ -314,37 +310,37 @@ header {
   text-transform: uppercase;
 }
 
-/* COFFEE SECTION */
+/* COFFEE SECTION - COMPACT, ONE-SCREEN DESKTOP LAYOUT */
 
 .coffee-section {
-  position: relative;
-  z-index: 2;
   border-top: 1px solid rgba(240,229,216,.22);
   margin-top: 35px;
-  padding: 55px 0 75px;
-  background: #50191f;
-  transform-origin: center top;
-  will-change: transform, opacity;
+  min-height: 100svh;
+  padding: 24px 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .coffee-heading {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 14px;
+  flex: 0 0 auto;
 }
 
 .coffee-kicker {
   font-family: "DM Sans", sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: .3em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 14px;
+  margin: 0 0 7px;
 }
 
 .coffee-title {
   font-family: "Italiana", Georgia, serif;
   font-weight: 400;
-  font-size: clamp(42px, 5vw, 65px);
+  font-size: clamp(34px, 3.7vw, 48px);
   letter-spacing: .06em;
   text-transform: uppercase;
   margin: 0;
@@ -354,66 +350,55 @@ header {
   width: 55px;
   height: 1px;
   background: var(--line);
-  margin: 20px auto 0;
+  margin: 11px auto 0;
 }
 
-/* COFFEE VIDEO LEFT / MENU RIGHT */
+/* COFFEE LAYOUT: VIDEO LEFT, MENU RIGHT */
 
 .coffee-layout {
-  width: min(1250px, 100%);
+  width: min(1320px, 100%);
+  flex: 1 1 auto;
+  min-height: 0;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(35px, 6vw, 90px);
+  gap: clamp(28px, 4vw, 64px);
 }
-
-/* VIDEO */
 
 .coffee-video-wrap {
   width: 100%;
   margin: 0;
-  padding: 0;
   background: #50191f;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: perspective(1000px) rotateY(3deg);
-  transition: transform .7s ease;
-}
-
-.coffee-video-wrap:hover {
-  transform: perspective(1000px) rotateY(0deg) scale(1.015);
+  overflow: hidden;
+  height: min(62vh, 610px);
+  min-height: 0;
 }
 
 .coffee-video {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: none;
+  height: 100%;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
   background: #50191f;
-  mix-blend-mode: screen;
-  transform: scale(1.18);
-  transform-origin: center;
+  mix-blend-mode: normal;
 }
 
-/* COFFEE MENU */
+/* COFFEE MENU ITEMS */
 
 .coffee-menu {
   width: 100%;
+  max-width: none;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
+  column-gap: 0;
   row-gap: 0;
-  transform: perspective(1000px) rotateY(-2deg);
-  transition: transform .7s ease;
-}
-
-.coffee-menu:hover {
-  transform: perspective(1000px) rotateY(0deg);
 }
 
 .coffee-item {
@@ -421,28 +406,27 @@ header {
   grid-template-columns: 1fr auto;
   gap: 15px;
   align-items: start;
-  padding: 22px 0;
-  border: none;
-  border-bottom: 1px solid rgba(240,229,216,.22);
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(240,229,216,.2);
 }
 
-.coffee-item:last-child {
-  border-bottom: none;
+.coffee-item:first-child {
+  border-top: 1px solid rgba(240,229,216,.2);
 }
 
 .coffee-name {
-  font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: .06em;
-  margin: 0 0 9px;
+  font-size: clamp(17px, 1.55vw, 20px);
+  line-height: 1.2;
+  letter-spacing: .05em;
+  margin: 0 0 5px;
   font-weight: 400;
 }
 
 .coffee-description {
   color: #d9c2b8;
   font-family: "DM Sans", sans-serif;
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: 10px;
+  line-height: 1.45;
   margin: 0;
 }
 
@@ -450,9 +434,9 @@ header {
   white-space: nowrap;
   color: var(--cream);
   font-family: "DM Sans", sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   letter-spacing: .04em;
-  padding-top: 5px;
+  padding-top: 3px;
 }
 
 /* FOOTER */
@@ -482,7 +466,7 @@ footer {
 .info-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 90;
   display: none;
   align-items: center;
   justify-content: center;
@@ -499,7 +483,7 @@ footer {
   position: relative;
   padding: clamp(32px, 6vw, 58px);
   background: var(--cream);
-  color: #351015;
+  color: var(--bg-dark);
   box-shadow: 0 25px 80px rgba(0,0,0,.3);
 }
 
@@ -529,7 +513,7 @@ footer {
 
 .info-card .info-address {
   font-size: 17px;
-  color: #351015;
+  color: var(--bg-dark);
   line-height: 1.7;
 }
 
@@ -539,7 +523,7 @@ footer {
   right: 16px;
   border: 0;
   background: transparent;
-  color: #351015;
+  color: var(--bg-dark);
   font-size: 28px;
   cursor: pointer;
 }
@@ -547,50 +531,12 @@ footer {
 .info-map-link {
   display: inline-block;
   margin-top: 12px;
-  color: #351015;
+  color: var(--bg-dark);
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   text-underline-offset: 5px;
-}
-
-/* FIXED BOTTOM NAVIGATION */
-
-.bottom-nav {
-  position: fixed;
-  z-index: 150;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 7px;
-  border: 1px solid rgba(240,229,216,.3);
-  border-radius: 50px;
-  background: rgba(80,25,31,.94);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 8px 30px rgba(0,0,0,.25);
-}
-
-.bottom-nav a {
-  color: var(--cream);
-  text-decoration: none;
-  font-family: "DM Sans", sans-serif;
-  font-size: 10px;
-  letter-spacing: .17em;
-  padding: 13px 24px;
-  border-radius: 40px;
-  opacity: .7;
-  transition: background .3s, opacity .3s, transform .3s;
-}
-
-.bottom-nav a:hover,
-.bottom-nav a.active {
-  background: rgba(240,229,216,.15);
-  opacity: 1;
 }
 
 /* TABLET */
@@ -633,10 +579,6 @@ footer {
 /* MOBILE */
 
 @media(max-width: 650px) {
-  body {
-    padding-bottom: 75px;
-  }
-
   .page {
     padding: 18px 20px 22px;
   }
@@ -728,7 +670,16 @@ footer {
 
   .coffee-section {
     margin-top: 20px;
-    padding: 40px 0 65px;
+    min-height: 0;
+    padding: 36px 0 40px;
+  }
+
+  .coffee-heading {
+    margin-bottom: 20px;
+  }
+
+  .coffee-title {
+    font-size: 38px;
   }
 
   .coffee-layout {
@@ -736,14 +687,19 @@ footer {
     gap: 25px;
   }
 
-  .coffee-video-wrap,
-  .coffee-menu {
-    transform: none;
+  .coffee-video-wrap {
+    margin-bottom: 0;
+    height: auto;
+    min-height: 0;
   }
 
-  .coffee-video-wrap:hover,
-  .coffee-menu:hover {
-    transform: none;
+  .coffee-video {
+    height: auto;
+    max-height: 380px;
+  }
+
+  .coffee-menu {
+    grid-template-columns: 1fr;
   }
 
   .coffee-name {
@@ -755,7 +711,7 @@ footer {
   }
 
   .coffee-item {
-    padding: 19px 0;
+    padding: 16px 0;
   }
 
   footer {
@@ -772,32 +728,6 @@ footer {
 
   .info-card {
     padding: 42px 28px;
-  }
-
-  .bottom-nav {
-    bottom: 12px;
-    width: max-content;
-    max-width: calc(100% - 30px);
-  }
-
-  .bottom-nav a {
-    padding: 12px 21px;
-    font-size: 9px;
-  }
-}
-
-/* ACCESSIBILITY: REDUCED MOTION */
-
-@media(prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
   }
 }
 </style>
@@ -854,7 +784,7 @@ footer {
       class="main-photo"
       id="main-photo"
       src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
-      alt="Berry Choco"
+      alt="Berry Choco — Nutella, strawberry and banana"
     >
     <p class="photo-caption">Freshly made · Thoughtfully crafted</p>
   </div>
@@ -916,9 +846,6 @@ footer {
   </div>
 
   <div class="coffee-layout">
-
-    <!-- COFFEE VIDEO ON THE LEFT -->
-
     <div class="coffee-video-wrap">
       <video
         class="coffee-video"
@@ -936,8 +863,6 @@ footer {
         Your browser does not support this video.
       </video>
     </div>
-
-    <!-- COFFEE NAMES AND PRICES ON THE RIGHT -->
 
     <div class="coffee-menu">
 
@@ -991,18 +916,9 @@ footer {
         <div class="coffee-price">2,500 AMD</div>
       </article>
 
-      <article class="coffee-item">
-        <div>
-          <h3 class="coffee-name">Mocha White Chocolate</h3>
-          <p class="coffee-description">
-            Rich espresso blended with creamy white chocolate and silky steamed milk. Smooth, sweet and indulgent.
-          </p>
-        </div>
-        <div class="coffee-price">2,800 AMD</div>
-      </article>
-
     </div>
   </div>
+
 </section>
 
 <footer>
@@ -1012,13 +928,6 @@ footer {
 </footer>
 
 </div>
-
-<!-- FIXED BOTTOM NAVIGATION -->
-
-<nav class="bottom-nav" aria-label="Menu navigation">
-  <a href="#menu" class="active" id="nav-crepes">CRÊPES</a>
-  <a href="#coffee" id="nav-coffee">COFFEE</a>
-</nav>
 
 <!-- ABOUT AND LOCATION POPUP -->
 
@@ -1032,9 +941,6 @@ footer {
 </div>
 
 <script>
-
-/* CREPE DATA */
-
 const crepes = [
   {
     name: "Berry<br>Choco",
@@ -1074,15 +980,12 @@ const crepes = [
   }
 ];
 
-/* CREPE SELECTION */
-
 const mainPhoto = document.getElementById("main-photo");
 const nameElement = document.getElementById("crepe-name");
 const subtitleElement = document.getElementById("crepe-subtitle");
 const descriptionElement = document.getElementById("crepe-description");
 const ingredientsElement = document.getElementById("crepe-ingredients");
 const priceElement = document.getElementById("crepe-price");
-
 const choices = document.querySelectorAll(".crepe-choice");
 
 function selectCrepe(index) {
@@ -1096,7 +999,6 @@ function selectCrepe(index) {
   });
 
   const newImage = new Image();
-
   mainPhoto.classList.add("fade");
 
   newImage.onload = function() {
@@ -1122,7 +1024,7 @@ function selectCrepe(index) {
   newImage.src = selected.image;
 }
 
-choices.forEach(button => {
+choices.forEach((button) => {
   button.addEventListener("click", function() {
     selectCrepe(Number(this.dataset.index));
   });
@@ -1137,7 +1039,7 @@ const infoContent = {
     html: `
       <p>Atelier Crêpe began with a simple idea: bring the warmth of a small French crêperie to the heart of Yerevan.</p>
       <p>We imagine a place where crêpes are made to order, fruit is fresh, chocolate is generous, and every visit feels like a little pause in a busy day.</p>
-      <p>Whether you love strawberries, bananas, or a little extra chocolate, there is a sweet moment waiting for you at our table.</p>
+      <p>Whether you love strawberries, bananas, or a little extra peanut butter, there is a sweet moment waiting for you at our table.</p>
     `
   },
 
@@ -1162,7 +1064,6 @@ function openInfo(event, type) {
   document.getElementById("info-eyebrow").textContent = info.eyebrow;
   document.getElementById("info-title").textContent = info.title;
   document.getElementById("info-content").innerHTML = info.html;
-
   document.getElementById("info-overlay").classList.add("open");
 }
 
@@ -1181,85 +1082,6 @@ document.addEventListener("keydown", event => {
     hideInfo();
   }
 });
-
-/* BOTTOM NAVIGATION ACTIVE STATE */
-
-const crepeSection = document.querySelector(".hero");
-const coffeeSection = document.querySelector(".coffee-section");
-
-const navCrepes = document.getElementById("nav-crepes");
-const navCoffee = document.getElementById("nav-coffee");
-
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-
-    if (entry.target === crepeSection) {
-      navCrepes.classList.add("active");
-      navCoffee.classList.remove("active");
-    }
-
-    if (entry.target === coffeeSection) {
-      navCoffee.classList.add("active");
-      navCrepes.classList.remove("active");
-    }
-  });
-}, {
-  threshold: 0.2,
-  rootMargin: "-10% 0px -20% 0px"
-});
-
-sectionObserver.observe(crepeSection);
-sectionObserver.observe(coffeeSection);
-
-/* 3D SCROLL TRANSITION */
-
-const reduceMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-let scrollFrame = null;
-
-function updateScrollEffect() {
-  if (reduceMotion || scrollFrame !== null) return;
-
-  scrollFrame = requestAnimationFrame(() => {
-    const coffeeTop = coffeeSection.getBoundingClientRect().top;
-    const viewportHeight = window.innerHeight;
-
-    const progress = Math.max(
-      0,
-      Math.min(1, (viewportHeight - coffeeTop) / viewportHeight)
-    );
-
-    const scale = 1 - progress * 0.055;
-    const rotate = progress * -3;
-    const lift = progress * -25;
-
-    crepeSection.style.transform =
-      `perspective(1200px) translateY(${lift}px) rotateX(${rotate}deg) scale(${scale})`;
-
-    crepeSection.style.opacity =
-      1 - progress * 0.28;
-
-    coffeeSection.style.transform =
-      `perspective(1200px) translateY(${(1 - progress) * 35}px) scale(${0.97 + progress * 0.03})`;
-
-    coffeeSection.style.opacity =
-      0.7 + progress * 0.3;
-
-    scrollFrame = null;
-  });
-}
-
-window.addEventListener("scroll", updateScrollEffect, {
-  passive: true
-});
-
-window.addEventListener("resize", updateScrollEffect);
-
-updateScrollEffect();
-
 </script>
 
 </body>
