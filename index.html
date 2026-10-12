@@ -37,11 +37,15 @@ body {
   font-family: "Italiana", Georgia, serif;
 }
 
+button {
+  font: inherit;
+}
+
 .page {
-  max-width: 1700px;
+  max-width: 1900px;
   min-height: 100vh;
   margin: auto;
-  padding: 30px 5vw 24px;
+  padding: 30px 4.7vw 24px;
   display: flex;
   flex-direction: column;
 }
@@ -106,278 +110,251 @@ header {
   letter-spacing: .2em;
 }
 
-/* GENERAL MENU HEADINGS */
+/* MAIN */
 
-.menu-heading {
-  text-align: center;
-  margin-bottom: 65px;
-}
-
-.menu-eyebrow {
-  font-family: "DM Sans", sans-serif;
-  font-size: 9px;
-  letter-spacing: .38em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 17px;
-}
-
-.menu-title {
-  font-family: "Italiana", Georgia, serif;
-  font-size: clamp(48px, 6vw, 76px);
-  font-weight: 400;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  line-height: 1;
-  margin: 0;
-}
-
-.menu-description {
-  color: #ead9cf;
-  font-size: 16px;
-  letter-spacing: .04em;
-  line-height: 1.7;
-  margin: 20px auto 0;
-  max-width: 470px;
-}
-
-.heading-line {
-  width: 55px;
-  height: 1px;
-  background: var(--line);
-  margin: 27px auto 0;
-}
-
-/* CREPE MENU */
-
-.crepe-section {
-  width: 100%;
-  padding: 75px 0 75px;
-  border-bottom: 1px solid rgba(240,229,216,.18);
-}
-
-.menu-grid {
+.hero {
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px;
-  align-items: start;
-}
-
-.menu-item {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-}
-
-.menu-item-image {
-  width: 100%;
-  height: 290px;
-  display: flex;
+  grid-template-columns: minmax(250px, .82fr) minmax(350px, 1.45fr) minmax(175px, .65fr);
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 25px;
+  gap: 2vw;
+  min-height: 680px;
+  padding: 25px 0;
 }
 
-.menu-item-image img {
+/* LEFT INFORMATION */
+
+.left-panel {
+  padding-left: 2vw;
+  position: relative;
+  z-index: 2;
+}
+
+.counter {
+  font-size: 16px;
+  letter-spacing: .2em;
+  line-height: 1.7;
+}
+
+.counter span {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 18px rgba(20,5,7,.2));
-  transition: transform .45s ease;
-}
-
-.menu-item:hover .menu-item-image img {
-  transform: scale(1.045);
-}
-
-.item-top-line {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-bottom: 15px;
-}
-
-.item-line {
-  width: 27px;
-  height: 1px;
+  width: 1px;
+  height: 30px;
   background: var(--line);
-  flex-shrink: 0;
+  margin: 5px 0;
 }
 
-.item-category {
-  color: var(--muted);
-  font-family: "DM Sans", sans-serif;
-  font-size: 8px;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-}
-
-.item-name {
+.flavour-title {
   font-family: "Italiana", Georgia, serif;
-  font-size: clamp(25px, 2.2vw, 34px);
+  font-size: clamp(48px, 5vw, 76px);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: .94;
   letter-spacing: .045em;
   text-transform: uppercase;
-  margin: 0 0 13px;
-  min-height: 76px;
+  margin: 34px 0 16px;
 }
 
-.item-description {
-  color: #ead9cf;
+.subtitle {
+  color: var(--muted);
   font-size: 14px;
-  line-height: 1.75;
-  letter-spacing: .015em;
+  letter-spacing: .1em;
+  margin: 0 0 22px;
+}
+
+.rule {
+  width: 63px;
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 20px;
+}
+
+.description {
+  max-width: 310px;
+  color: #ead9cf;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: .025em;
   margin: 0;
-  min-height: 100px;
 }
 
 .ingredients-label {
-  margin: 23px 0 9px;
+  margin: 23px 0 8px;
   color: var(--muted);
   font-family: "DM Sans", sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: .22em;
   text-transform: uppercase;
 }
 
 .ingredients {
-  font-size: 13px;
+  max-width: 300px;
+  font-size: 14px;
   line-height: 1.8;
-  letter-spacing: .025em;
-  min-height: 48px;
+  letter-spacing: .03em;
 }
 
-.item-bottom {
+.price-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--line);
-  padding-top: 17px;
+  align-items: baseline;
+  gap: 15px;
   margin-top: 24px;
 }
 
 .price-label {
   color: var(--muted);
   font-family: "DM Sans", sans-serif;
-  font-size: 8px;
-  letter-spacing: .22em;
+  font-size: 9px;
+  letter-spacing: .2em;
   text-transform: uppercase;
 }
 
 .price {
-  font-size: 22px;
+  font-size: 25px;
   letter-spacing: .04em;
 }
 
-/* COFFEE SECTION */
-
-.coffee-section {
-  padding: 85px 0 75px;
-  border-bottom: 1px solid rgba(240,229,216,.18);
-}
-
-.coffee-heading {
-  text-align: center;
-  margin-bottom: 65px;
-}
-
-.coffee-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 95px);
+.details-btn {
+  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 30px;
+  min-width: 245px;
+  margin-top: 30px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  color: var(--cream);
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  transition: .3s;
 }
 
-/* LEFT VIDEO */
+.details-btn:hover {
+  background: var(--cream);
+  color: var(--bg);
+}
 
-.coffee-video-wrap {
+/* MAIN PRODUCT PHOTO */
+
+.photo-stage {
   position: relative;
   width: 100%;
-  height: 570px;
-  overflow: hidden;
-  background: var(--bg-dark);
+  height: min(68vh, 690px);
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.coffee-video {
+.main-photo {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  filter: drop-shadow(0 22px 28px rgba(20,5,7,.22));
+  transition: opacity .3s ease, transform .4s ease;
 }
 
-.video-caption {
+.main-photo.fade {
+  opacity: 0;
+  transform: scale(.97);
+}
+
+.photo-caption {
   position: absolute;
-  bottom: 25px;
-  left: 25px;
-  right: 25px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   text-align: center;
-  color: var(--cream);
+  color: rgba(240,229,216,.55);
   font-family: "DM Sans", sans-serif;
-  font-size: 9px;
-  letter-spacing: .3em;
+  font-size: 8px;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0,0,0,.6);
   pointer-events: none;
 }
 
-/* RIGHT COFFEE LIST */
+/* RIGHT MENU */
 
-.coffee-list {
+.right-panel {
   display: flex;
   flex-direction: column;
-}
-
-.coffee-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
   gap: 18px;
+}
+
+.crepe-choice {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 78px 1fr;
   align-items: center;
-  padding: 25px 0;
-  border-bottom: 1px solid var(--line);
+  gap: 13px;
+  padding: 8px 0;
+  background: none;
+  border: 0;
+  color: var(--cream);
+  text-align: left;
+  cursor: pointer;
+  opacity: .58;
+  transition: opacity .25s ease, transform .25s ease;
 }
 
-.coffee-item:first-child {
-  border-top: 1px solid var(--line);
+.crepe-choice:hover,
+.crepe-choice.active {
+  opacity: 1;
 }
 
-.coffee-info {
-  min-width: 0;
+.crepe-choice:hover {
+  transform: translateX(-3px);
 }
 
-.coffee-name {
-  font-family: "Italiana", Georgia, serif;
-  font-size: clamp(25px, 2.6vw, 37px);
-  font-weight: 400;
-  letter-spacing: .055em;
-  text-transform: uppercase;
-  line-height: 1.15;
-  margin: 0 0 11px;
+.choice-image {
+  width: 78px;
+  height: 105px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.coffee-description {
-  color: #ead9cf;
-  font-family: "DM Sans", sans-serif;
+.choice-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 9px rgba(15,4,5,.2));
+  transition: transform .3s ease;
+}
+
+.crepe-choice:hover img,
+.crepe-choice.active img {
+  transform: scale(1.06);
+}
+
+.choice-info {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.choice-line {
+  width: 25px;
+  height: 1px;
+  background: var(--line);
+  transition: width .3s;
+}
+
+.crepe-choice.active .choice-line {
+  width: 42px;
+  background: var(--cream);
+}
+
+.choice-name {
   font-size: 13px;
-  font-weight: 300;
-  line-height: 1.75;
-  letter-spacing: .015em;
-  max-width: 430px;
-  margin: 0;
-}
-
-.coffee-price {
-  white-space: nowrap;
-  font-family: "Italiana", Georgia, serif;
-  font-size: 21px;
-  letter-spacing: .025em;
-  border: 1px solid var(--line);
-  padding: 10px 13px;
+  line-height: 1.5;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 /* FOOTER */
@@ -393,7 +370,7 @@ footer {
   line-height: 1.9;
   letter-spacing: .25em;
   text-transform: uppercase;
-  padding-top: 20px;
+  padding-top: 12px;
 }
 
 .footer-line {
@@ -404,46 +381,37 @@ footer {
 /* TABLET */
 
 @media(max-width: 1050px) {
-  .page {
-    padding-left: 4vw;
-    padding-right: 4vw;
+  .hero {
+    grid-template-columns: minmax(220px,.8fr) minmax(300px,1.2fr);
+    gap: 20px;
   }
 
-  .menu-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 35px;
-    row-gap: 55px;
+  .left-panel {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .menu-item-image {
-    height: 320px;
+  .photo-stage {
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  .item-name {
-    font-size: 34px;
-    min-height: auto;
+  .right-panel {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 12px;
+    padding-top: 20px;
   }
 
-  .item-description,
-  .ingredients {
-    min-height: auto;
+  .crepe-choice {
+    grid-template-columns: 65px 1fr;
   }
 
-  .coffee-layout {
-    gap: 35px;
-  }
-
-  .coffee-video-wrap {
-    height: 480px;
-  }
-
-  .coffee-item {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .coffee-price {
-    justify-self: start;
+  .choice-image {
+    width: 65px;
+    height: 85px;
   }
 }
 
@@ -473,117 +441,69 @@ footer {
     display: none;
   }
 
-  .crepe-section {
-    padding: 48px 0 48px;
-  }
-
-  .menu-heading,
-  .coffee-heading {
-    margin-bottom: 40px;
-  }
-
-  .menu-title {
-    font-size: 48px;
-  }
-
-  .menu-description {
-    font-size: 14px;
-    max-width: 310px;
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 18px;
-    row-gap: 38px;
-  }
-
-  .menu-item {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    gap: 0;
     padding-top: 12px;
   }
 
-  .menu-item-image {
-    height: 175px;
-    margin-bottom: 17px;
+  .photo-stage {
+    order: 1;
+    height: 370px;
+    min-height: 0;
   }
 
-  .item-top-line {
-    gap: 8px;
-    margin-bottom: 12px;
+  .left-panel {
+    order: 2;
+    padding: 8px 4px 0;
   }
 
-  .item-category {
-    font-size: 7px;
-    letter-spacing: .14em;
+  .counter {
+    display: none;
   }
 
-  .item-name {
-    font-size: 23px;
-    min-height: 54px;
-    margin-bottom: 10px;
+  .flavour-title {
+    font-size: 48px;
+    margin: 5px 0 12px;
   }
 
-  .item-description {
-    font-size: 12px;
-    line-height: 1.65;
+  .description {
+    max-width: 100%;
+    font-size: 15px;
   }
 
-  .ingredients-label {
-    margin-top: 17px;
-    font-size: 7px;
-  }
-
-  .ingredients {
-    font-size: 11px;
-    line-height: 1.65;
-  }
-
-  .item-bottom {
-    margin-top: 18px;
-    padding-top: 13px;
-  }
-
-  .price-label {
-    font-size: 7px;
-  }
-
-  .price {
-    font-size: 17px;
-  }
-
-  /* COFFEE MOBILE */
-
-  .coffee-section {
-    padding: 55px 0 50px;
-  }
-
-  .coffee-layout {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .coffee-video-wrap {
-    height: 390px;
-  }
-
-  .coffee-item {
-    grid-template-columns: 1fr auto;
+  .right-panel {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 12px;
-    padding: 21px 0;
+    margin-top: 30px;
   }
 
-  .coffee-name {
-    font-size: 27px;
-    margin-bottom: 8px;
+  .crepe-choice {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border-top: 1px solid var(--line);
+    padding: 12px 0;
   }
 
-  .coffee-description {
-    font-size: 12px;
-    line-height: 1.65;
+  .choice-image {
+    width: 62px;
+    height: 80px;
+    flex-shrink: 0;
   }
 
-  .coffee-price {
-    font-size: 16px;
-    padding: 8px 9px;
+  .choice-name {
+    font-size: 10px;
+    letter-spacing: .09em;
+  }
+
+  .choice-info {
+    gap: 7px;
   }
 
   footer {
@@ -591,43 +511,11 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 12px;
-    margin-top: 10px;
+    margin-top: 30px;
   }
 
   .footer-line {
     width: 100%;
-  }
-}
-
-/* SMALL MOBILE */
-
-@media(max-width: 380px) {
-  .menu-grid {
-    column-gap: 13px;
-  }
-
-  .menu-item-image {
-    height: 150px;
-  }
-
-  .item-name {
-    font-size: 20px;
-  }
-
-  .price {
-    font-size: 15px;
-  }
-
-  .coffee-video-wrap {
-    height: 320px;
-  }
-
-  .coffee-name {
-    font-size: 23px;
-  }
-
-  .coffee-price {
-    font-size: 14px;
   }
 }
 </style>
@@ -636,282 +524,233 @@ footer {
 <body>
 <div class="page">
 
-  <!-- HEADER -->
+<header>
+  <a class="brand" href="#menu">
+    <p class="brand-name">Atelier Crêpe</p>
+    <p class="brand-sub">French Crêpe Atelier</p>
+  </a>
 
-  <header>
-    <a class="brand" href="#menu">
-      <p class="brand-name">Atelier Crêpe</p>
-      <p class="brand-sub">French Crêpe Atelier</p>
+  <nav class="nav">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#location">Location</a>
+  </nav>
+
+  <div class="header-right">EN &nbsp; | &nbsp; FR</div>
+</header>
+
+<main class="hero" id="menu">
+
+  <section class="left-panel" id="details">
+
+    <div class="counter" id="counter">
+      01<span></span>04
+    </div>
+
+    <h1 class="flavour-title" id="crepe-name">
+      Berry<br>Choco
+    </h1>
+
+    <p class="subtitle" id="crepe-subtitle">
+      A little indulgence, made fresh.
+    </p>
+
+    <div class="rule"></div>
+
+    <p class="description" id="crepe-description">
+      A delicate golden crêpe filled with silky Nutella, sweet strawberries and fresh banana. A timeless combination of rich chocolate and fresh fruit.
+    </p>
+
+    <p class="ingredients-label">Ingredients</p>
+
+    <div class="ingredients" id="crepe-ingredients">
+      Nutella · Fresh strawberries · Banana
+    </div>
+
+    <div class="price-row">
+      <span class="price-label">Price</span>
+      <span class="price" id="crepe-price">2,500 AMD</span>
+    </div>
+
+    <a href="#details" class="details-btn">
+      <span>Discover this crêpe</span>
+      <span>⟶</span>
     </a>
 
-    <nav class="nav">
-      <a href="#menu">Menu</a>
-      <a href="#coffee">Coffee</a>
-      <a href="#about">About</a>
-      <a href="#location">Location</a>
-    </nav>
-
-    <div class="header-right">EN &nbsp; | &nbsp; FR</div>
-  </header>
-
-
-  <!-- CREPE MENU -->
-
-  <main class="crepe-section" id="menu">
-
-    <div class="menu-heading">
-      <p class="menu-eyebrow">Freshly made · Thoughtfully crafted</p>
-      <h1 class="menu-title">Our Menu</h1>
-      <p class="menu-description">
-        Discover our selection of freshly made crêpes, prepared with care and the finest ingredients.
-      </p>
-      <div class="heading-line"></div>
-    </div>
-
-    <div class="menu-grid">
-
-      <!-- BERRY CHOCO -->
-
-      <article class="menu-item">
-        <div class="menu-item-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
-            alt="Berry Choco — Nutella, strawberries and banana"
-          >
-        </div>
-
-        <div class="item-top-line">
-          <span class="item-line"></span>
-          <span class="item-category">Chocolate & Fruit</span>
-        </div>
-
-        <h2 class="item-name">Berry Choco</h2>
-
-        <p class="item-description">
-          A delicate golden crêpe filled with silky Nutella, sweet strawberries and fresh banana. A timeless combination of rich chocolate and fresh fruit.
-        </p>
-
-        <p class="ingredients-label">Ingredients</p>
-        <div class="ingredients">
-          Nutella · Fresh strawberries · Banana
-        </div>
-
-        <div class="item-bottom">
-          <span class="price-label">Price</span>
-          <span class="price">2,500 AMD</span>
-        </div>
-      </article>
-
-
-      <!-- RASPBERRY CLOUD -->
-
-      <article class="menu-item">
-        <div class="menu-item-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854"
-            alt="Raspberry Cloud — white cream and raspberries"
-          >
-        </div>
-
-        <div class="item-top-line">
-          <span class="item-line"></span>
-          <span class="item-category">Cream & Berries</span>
-        </div>
-
-        <h2 class="item-name">Raspberry Cloud</h2>
-
-        <p class="item-description">
-          A soft golden crêpe filled with smooth, velvety white cream and finished with fresh raspberries. A delicate balance of creamy sweetness and bright berry freshness.
-        </p>
-
-        <p class="ingredients-label">Ingredients</p>
-        <div class="ingredients">
-          White cream · Fresh raspberries
-        </div>
-
-        <div class="item-bottom">
-          <span class="price-label">Price</span>
-          <span class="price">2,500 AMD</span>
-        </div>
-      </article>
-
-
-      <!-- LOTUS DREAM -->
-
-      <article class="menu-item">
-        <div class="menu-item-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899"
-            alt="Lotus Dream — Lotus cream and biscuits"
-          >
-        </div>
-
-        <div class="item-top-line">
-          <span class="item-line"></span>
-          <span class="item-category">Caramel & Biscuit</span>
-        </div>
-
-        <h2 class="item-name">Lotus Dream</h2>
-
-        <p class="item-description">
-          A golden crêpe filled with smooth Biscoff Lotus cream and topped with crunchy Lotus biscuit pieces. Rich caramel notes and a satisfying biscuit crunch in every bite.
-        </p>
-
-        <p class="ingredients-label">Ingredients</p>
-        <div class="ingredients">
-          Biscoff Lotus cream · Lotus biscuits
-        </div>
-
-        <div class="item-bottom">
-          <span class="price-label">Price</span>
-          <span class="price">2,700 AMD</span>
-        </div>
-      </article>
-
-
-      <!-- NUTELLA CINNABON -->
-
-      <article class="menu-item">
-        <div class="menu-item-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031"
-            alt="Nutella Cinnabon — Nutella, Cinnabon and apples"
-          >
-        </div>
-
-        <div class="item-top-line">
-          <span class="item-line"></span>
-          <span class="item-category">Chocolate & Cinnamon</span>
-        </div>
-
-        <h2 class="item-name">Nutella Cinnabon</h2>
-
-        <p class="item-description">
-          A golden crêpe bringing together rich Nutella, sweet apples and the irresistible cinnamon warmth of Cinnabon. A comforting combination of chocolate, fruit and spice.
-        </p>
-
-        <p class="ingredients-label">Ingredients</p>
-        <div class="ingredients">
-          Nutella · Cinnabon · Apples
-        </div>
-
-        <div class="item-bottom">
-          <span class="price-label">Price</span>
-          <span class="price">2,900 AMD</span>
-        </div>
-      </article>
-
-    </div>
-  </main>
-
-
-  <!-- COFFEE MENU -->
-
-  <section class="coffee-section" id="coffee">
-
-    <div class="coffee-heading">
-      <p class="menu-eyebrow">A little something to sip</p>
-      <h2 class="menu-title">Coffee Menu</h2>
-      <p class="menu-description">
-        Carefully prepared coffee, made to accompany your favourite crêpe.
-      </p>
-      <div class="heading-line"></div>
-    </div>
-
-    <div class="coffee-layout">
-
-      <!-- LEFT: ATELIER CREPE VIDEO -->
-
-      <div class="coffee-video-wrap">
-        <video
-          class="coffee-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        >
-          <source
-            src="https://cdn.shopify.com/videos/c/o/v/fd00f488e2514ac290702a523afb3846.mov"
-            type="video/quicktime"
-          >
-          Your browser does not support this video.
-        </video>
-
-        <p class="video-caption">
-          Atelier Crêpe · Made with care
-        </p>
-      </div>
-
-
-      <!-- RIGHT: COFFEE LIST -->
-
-      <div class="coffee-list">
-
-        <!-- AMERICANO -->
-
-        <article class="coffee-item">
-          <div class="coffee-info">
-            <h3 class="coffee-name">Americano</h3>
-            <p class="coffee-description">
-              A smooth and aromatic espresso, gently lengthened with hot water. Rich in flavour, light in texture and beautifully balanced.
-            </p>
-          </div>
-          <div class="coffee-price">1,000 AMD</div>
-        </article>
-
-
-        <!-- CAPPUCCINO -->
-
-        <article class="coffee-item">
-          <div class="coffee-info">
-            <h3 class="coffee-name">Cappuccino</h3>
-            <p class="coffee-description">
-              A classic espresso blended with steamed milk and topped with a delicate layer of velvety milk foam. Smooth, creamy and perfectly balanced.
-            </p>
-          </div>
-          <div class="coffee-price">1,200 AMD</div>
-        </article>
-
-
-        <!-- LATTE -->
-
-        <article class="coffee-item">
-          <div class="coffee-info">
-            <h3 class="coffee-name">Latte</h3>
-            <p class="coffee-description">
-              Rich espresso meets silky steamed milk, finished with a light layer of soft foam. A gentle, creamy coffee for a quiet moment.
-            </p>
-          </div>
-          <div class="coffee-price">1,200 AMD</div>
-        </article>
-
-
-        <!-- AFFOGATO -->
-
-        <article class="coffee-item">
-          <div class="coffee-info">
-            <h3 class="coffee-name">Affogato</h3>
-            <p class="coffee-description">
-              A scoop of smooth vanilla ice cream, finished with a shot of freshly brewed espresso. A beautiful meeting of warm coffee and cold sweetness.
-            </p>
-          </div>
-          <div class="coffee-price">1,600 AMD</div>
-        </article>
-
-      </div>
-    </div>
   </section>
 
+  <div class="photo-stage">
+    <img
+      class="main-photo"
+      id="main-photo"
+      src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
+      alt="Berry Choco — Nutella, strawberry and banana"
+    >
+    <p class="photo-caption">Freshly made · Thoughtfully crafted</p>
+  </div>
 
-  <!-- FOOTER -->
+  <section class="right-panel" aria-label="Our crêpes">
 
-  <footer id="about">
-    <span>French crêpes<br>& crafted with care</span>
-    <span class="footer-line"></span>
-    <span id="location">Atelier Crêpe · Made fresh for you</span>
-  </footer>
+    <button class="crepe-choice active" type="button" data-index="0" aria-pressed="true">
+      <span class="choice-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995"
+          alt="Berry Choco"
+        >
+      </span>
+      <span class="choice-info">
+        <span class="choice-line"></span>
+        <span class="choice-name">Berry<br>Choco</span>
+      </span>
+    </button>
+
+    <button class="crepe-choice" type="button" data-index="1" aria-pressed="false">
+      <span class="choice-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854"
+          alt="Raspberry Cloud"
+        >
+      </span>
+      <span class="choice-info">
+        <span class="choice-line"></span>
+        <span class="choice-name">Raspberry<br>Cloud</span>
+      </span>
+    </button>
+
+    <button class="crepe-choice" type="button" data-index="2" aria-pressed="false">
+      <span class="choice-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899"
+          alt="Lotus Dream"
+        >
+      </span>
+      <span class="choice-info">
+        <span class="choice-line"></span>
+        <span class="choice-name">Lotus<br>Dream</span>
+      </span>
+    </button>
+
+    <button class="crepe-choice" type="button" data-index="3" aria-pressed="false">
+      <span class="choice-image">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031"
+          alt="Nutella Cinnabon"
+        >
+      </span>
+      <span class="choice-info">
+        <span class="choice-line"></span>
+        <span class="choice-name">Nutella<br>Cinnabon</span>
+      </span>
+    </button>
+
+  </section>
+
+</main>
+
+<footer id="about">
+  <span>French crêpes<br>& crafted with care</span>
+  <span class="footer-line"></span>
+  <span id="location">Atelier Crêpe · Made fresh for you</span>
+</footer>
 
 </div>
+
+<script>
+const crepes = [
+  {
+    name: "Berry<br>Choco",
+    subtitle: "A little indulgence, made fresh.",
+    description: "A delicate golden crêpe filled with silky Nutella, sweet strawberries and fresh banana. A timeless combination of rich chocolate and fresh fruit.",
+    ingredients: "Nutella · Fresh strawberries · Banana",
+    price: "2,500 AMD",
+    image: "https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_9c7a8e47-fd35-4d72-b6e8-a803a8d7971b.png?v=1791813995",
+    alt: "Berry Choco with Nutella, strawberries and banana"
+  },
+  {
+    name: "Raspberry<br>Cloud",
+    subtitle: "Light, soft and beautifully delicate.",
+    description: "A soft golden crêpe filled with smooth, velvety white cream and finished with fresh raspberries. A delicate balance of creamy sweetness and bright berry freshness.",
+    ingredients: "White cream · Fresh raspberries",
+    price: "2,500 AMD",
+    image: "https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_6576056e-6d90-48e5-ac25-7473554f0a30.png?v=1791813854",
+    alt: "Raspberry Cloud with white cream and raspberries"
+  },
+  {
+    name: "Lotus<br>Dream",
+    subtitle: "A little moment of caramel sweetness.",
+    description: "A golden crêpe filled with smooth Biscoff Lotus cream and topped with crunchy Lotus biscuit pieces. Rich caramel notes and a satisfying biscuit crunch in every bite.",
+    ingredients: "Biscoff Lotus cream · Lotus biscuits",
+    price: "2,700 AMD",
+    image: "https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_373c3ba7-29ac-4c26-83c6-81d88d0f8783.png?v=1791813899",
+    alt: "Lotus Dream with Lotus cream and biscuits"
+  },
+  {
+    name: "Nutella<br>Cinnabon",
+    subtitle: "A warm and comforting little treat.",
+    description: "A golden crêpe bringing together rich Nutella, sweet apples and the irresistible cinnamon warmth of Cinnabon. A comforting combination of chocolate, fruit and spice.",
+    ingredients: "Nutella · Cinnabon · Apples",
+    price: "2,900 AMD",
+    image: "https://cdn.shopify.com/s/files/1/0843/5554/7384/files/Image_c1b4980a-79a7-47ce-907c-00fb57f4739c.png?v=1791814031",
+    alt: "Nutella Cinnabon with apples"
+  }
+];
+
+const mainPhoto = document.getElementById("main-photo");
+const nameElement = document.getElementById("crepe-name");
+const subtitleElement = document.getElementById("crepe-subtitle");
+const descriptionElement = document.getElementById("crepe-description");
+const ingredientsElement = document.getElementById("crepe-ingredients");
+const priceElement = document.getElementById("crepe-price");
+const counterElement = document.getElementById("counter");
+const choices = document.querySelectorAll(".crepe-choice");
+
+function selectCrepe(index) {
+  const selected = crepes[index];
+
+  if (!selected) return;
+
+  choices.forEach((button, buttonIndex) => {
+    const isActive = buttonIndex === index;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  const newImage = new Image();
+  mainPhoto.classList.add("fade");
+
+  newImage.onload = function() {
+    mainPhoto.src = selected.image;
+    mainPhoto.alt = selected.alt;
+
+    nameElement.innerHTML = selected.name;
+    subtitleElement.textContent = selected.subtitle;
+    descriptionElement.textContent = selected.description;
+    ingredientsElement.textContent = selected.ingredients;
+    priceElement.textContent = selected.price;
+
+    counterElement.innerHTML =
+      String(index + 1).padStart(2, "0") +
+      "<span></span>04";
+
+    requestAnimationFrame(() => {
+      mainPhoto.classList.remove("fade");
+    });
+  };
+
+  newImage.onerror = function() {
+    mainPhoto.classList.remove("fade");
+    console.error("Image could not be loaded:", selected.image);
+  };
+
+  newImage.src = selected.image;
+}
+
+choices.forEach((button) => {
+  button.addEventListener("click", function() {
+    selectCrepe(Number(this.dataset.index));
+  });
+});
+</script>
+
 </body>
 </html>
